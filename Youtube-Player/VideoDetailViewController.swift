@@ -14,6 +14,10 @@ class VideoDetailViewController: UIViewController {
     
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var titleTextLabel: UILabel!
+    
+    @IBOutlet weak var descriptionTextLabel: UILabel!
+    
     var video: Video!
     
     override func viewDidLoad() {
@@ -24,6 +28,8 @@ class VideoDetailViewController: UIViewController {
         webViewHeightConstraint.constant = height
         let content = "<iframe width=\"\(width)\" height=\"\(height)\" src=\"http://www.youtube.com/embed/\(video.id)\" frameborder=\"0\" allowfullscreen></iframe>"
         webView.loadHTMLString(content, baseURL: nil)
+        titleTextLabel.text = video.title
+        descriptionTextLabel.text = video.description
     }
 
     override func didReceiveMemoryWarning() {

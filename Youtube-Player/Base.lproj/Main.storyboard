@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Youtube Videos-->
@@ -91,15 +92,36 @@
                                     <constraint firstAttribute="height" constant="150" id="j0H-fw-d67"/>
                                 </constraints>
                             </webView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y5O-oc-QjH">
+                                <rect key="frame" x="20" y="234" width="560" height="48.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-sf-rh6">
+                                        <rect key="frame" x="265" y="0.0" width="30.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej5-pe-TEG">
+                                        <rect key="frame" x="243" y="31" width="73" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lpL-Co-Vpp" firstAttribute="leading" secondItem="pg8-vE-beb" secondAttribute="leading" id="3Gf-U9-Y8c"/>
                             <constraint firstAttribute="trailing" secondItem="lpL-Co-Vpp" secondAttribute="trailing" id="FYZ-NB-Ng8"/>
+                            <constraint firstItem="Y5O-oc-QjH" firstAttribute="leading" secondItem="pg8-vE-beb" secondAttribute="leadingMargin" id="ShE-nX-ieq"/>
                             <constraint firstItem="lpL-Co-Vpp" firstAttribute="top" secondItem="iG5-C6-6eR" secondAttribute="bottom" id="qRQ-oI-ckg"/>
+                            <constraint firstItem="Y5O-oc-QjH" firstAttribute="top" secondItem="lpL-Co-Vpp" secondAttribute="bottom" constant="20" id="qem-fP-Efz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y5O-oc-QjH" secondAttribute="trailing" id="xfw-QP-cUC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionTextLabel" destination="ej5-pe-TEG" id="Zvk-QJ-W65"/>
+                        <outlet property="titleTextLabel" destination="Sfl-sf-rh6" id="mYK-XG-wjd"/>
                         <outlet property="webView" destination="lpL-Co-Vpp" id="q6g-5f-ygf"/>
                         <outlet property="webViewHeightConstraint" destination="j0H-fw-d67" id="olI-3r-7yw"/>
                     </connections>
