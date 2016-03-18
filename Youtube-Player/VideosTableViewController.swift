@@ -42,10 +42,10 @@ class VideosTableViewController: UITableViewController, DataManagerDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = videos[indexPath.row].title
-
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! VideoTableViewCell
+        cell.populateCellWithDataFromVideo(videos[indexPath.row])
+        
         return cell
     }
 
