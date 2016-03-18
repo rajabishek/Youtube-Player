@@ -52,6 +52,17 @@ class VideosTableViewController: UITableViewController, DataManagerDelegate {
         
         return cell
     }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetailedView" {
+            if let destinationViewController = segue.destinationViewController as? VideoDetailViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    destinationViewController.video = videos[indexPath.row]
+                }
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,15 +98,4 @@ class VideosTableViewController: UITableViewController, DataManagerDelegate {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

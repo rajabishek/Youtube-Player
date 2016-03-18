@@ -57,6 +57,7 @@
                                 <connections>
                                     <outlet property="titleTextLabel" destination="W7x-Ht-FiK" id="tHo-yU-oIV"/>
                                     <outlet property="videoImageView" destination="Eui-mU-rzi" id="DQU-8H-TTL"/>
+                                    <segue destination="FIm-OH-Von" kind="show" identifier="showDetailedView" id="H0U-wn-hPj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,6 +71,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdJ-eH-cxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026" y="189"/>
+        </scene>
+        <!--Video Detail View Controller-->
+        <scene sceneID="BOm-YD-Ptf">
+            <objects>
+                <viewController id="FIm-OH-Von" customClass="VideoDetailViewController" customModule="Youtube_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iG5-C6-6eR"/>
+                        <viewControllerLayoutGuide type="bottom" id="awa-I9-CCD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pg8-vE-beb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpL-Co-Vpp">
+                                <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="j0H-fw-d67"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lpL-Co-Vpp" firstAttribute="leading" secondItem="pg8-vE-beb" secondAttribute="leading" id="3Gf-U9-Y8c"/>
+                            <constraint firstAttribute="trailing" secondItem="lpL-Co-Vpp" secondAttribute="trailing" id="FYZ-NB-Ng8"/>
+                            <constraint firstItem="lpL-Co-Vpp" firstAttribute="top" secondItem="iG5-C6-6eR" secondAttribute="bottom" id="qRQ-oI-ckg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="lpL-Co-Vpp" id="q6g-5f-ygf"/>
+                        <outlet property="webViewHeightConstraint" destination="j0H-fw-d67" id="olI-3r-7yw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PK7-aU-Ozw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dNY-WF-llx">
