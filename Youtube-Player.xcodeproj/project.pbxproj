@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1E184DDE7F883169C567D83D /* Pods_Youtube_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E2861E2611B21BEAB80FC2 /* Pods_Youtube_Player.framework */; };
 		CC0A64B91C9C85EF00BC8C35 /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A64B81C9C85EF00BC8C35 /* VideosTableViewController.swift */; };
+		CC0A64BC1C9C865700BC8C35 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A64BB1C9C865700BC8C35 /* DataManager.swift */; };
+		CC0A64BE1C9C867100BC8C35 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A64BD1C9C867100BC8C35 /* Video.swift */; };
 		CCCB86A61C9C55AD00CF5D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB86A51C9C55AD00CF5D48 /* AppDelegate.swift */; };
 		CCCB86AB1C9C55AD00CF5D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCB86A91C9C55AD00CF5D48 /* Main.storyboard */; };
 		CCCB86AD1C9C55AD00CF5D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCB86AC1C9C55AD00CF5D48 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 		2BA4AD8714E35F973DDCDDE2 /* Pods-Youtube-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-Player/Pods-Youtube-Player.release.xcconfig"; sourceTree = "<group>"; };
 		3481ABA5DE0BB5E1004125D0 /* Pods-Youtube-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-Player/Pods-Youtube-Player.debug.xcconfig"; sourceTree = "<group>"; };
 		CC0A64B81C9C85EF00BC8C35 /* VideosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
+		CC0A64BB1C9C865700BC8C35 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CC0A64BD1C9C867100BC8C35 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		CCCB86A21C9C55AD00CF5D48 /* Youtube-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCB86A51C9C55AD00CF5D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCCB86AA1C9C55AD00CF5D48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,14 @@
 				2BA4AD8714E35F973DDCDDE2 /* Pods-Youtube-Player.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC0A64BA1C9C864500BC8C35 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A64BB1C9C865700BC8C35 /* DataManager.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		CCCAEFAE1C9C5BF7003BF71E /* Supporting Files */ = {
@@ -79,6 +91,7 @@
 		CCCAEFB11C9C5C34003BF71E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A64BD1C9C867100BC8C35 /* Video.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -111,6 +124,7 @@
 		CCCB86A41C9C55AD00CF5D48 /* Youtube-Player */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A64BA1C9C864500BC8C35 /* Networking */,
 				CCCAEFB21C9C5C3C003BF71E /* Cells */,
 				CCCAEFB11C9C5C34003BF71E /* Model */,
 				CCCAEFB01C9C5C26003BF71E /* Controller */,
@@ -251,6 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCCB86A61C9C55AD00CF5D48 /* AppDelegate.swift in Sources */,
+				CC0A64BE1C9C867100BC8C35 /* Video.swift in Sources */,
+				CC0A64BC1C9C865700BC8C35 /* DataManager.swift in Sources */,
 				CC0A64B91C9C85EF00BC8C35 /* VideosTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
