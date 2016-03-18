@@ -34,7 +34,7 @@ class VideosTableViewController: UITableViewController, DataManagerDelegate {
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (self.view.frame.size.width / 1280) * 720
+        return (self.view.frame.size.width / 480) * 360
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

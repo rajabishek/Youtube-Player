@@ -31,14 +31,16 @@ class DataManager {
         
         var videos = [Video]()
         
-        let endpoint = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=PLOU2XLYxmsIIM9h1Ybw2DuRw6o2fkNMeR%2CPLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w&key=AIzaSyDVBHhoMngCH4izHQGtzimN1hk_47qIHEs"
+        let playlistIdentifier = "PLC8F6495E49C4DC24"
+        let secretKey = "AIzaSyDVBHhoMngCH4izHQGtzimN1hk_47qIHEs"
+        let endpoint = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(playlistIdentifier)&maxResults=50&key=\(secretKey)"
         
         Alamofire.request(.GET, endpoint, parameters: ["foo": "bar"])
             .responseJSON { response in
                 if let JSON = response.result.value {
                     if let items = JSON["items"] as? JSONArray {
                         for item in items {
-                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, let title = item.valueForKeyPath("snippet.title") as? String, let description = item.valueForKeyPath("snippet.description") as? String, let thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.maxres.url") as? String {
+                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, let title = item.valueForKeyPath("snippet.title") as? String, let description = item.valueForKeyPath("snippet.description") as? String, let thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.high.url") as? String {
                                 videos.append(Video(title: title, description: description, thumbnailUrl: thumbnailUrl, id: identifier))
                             } else {
                                 print("Could not parse the JSON data from youtube.")
