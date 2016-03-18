@@ -19,6 +19,14 @@ class DataManager {
     
     var delegate: DataManagerDelegate?
     
+    func getImageFromUrl(url: String, completion: (data: NSData) -> ()) {
+        Alamofire.request(.GET, url).response { (request, response, data, error) -> Void in
+            if data != nil {
+                completion(data: data!)
+            }
+        }
+    }
+    
     func getVideosFromYoutube() {
         
         var videos = [Video]()
