@@ -9,19 +9,39 @@
 import Foundation
 import Alamofire
 
+typealias JSONArray = [AnyObject]
+
+protocol DataManagerDelegate {
+    func didFinishLoadingVideosFromYoutube(videos: [Video])
+}
+
 class DataManager {
     
-    func getVideosFromYoutube() -> [Video] {
+    var delegate: DataManagerDelegate?
+    
+    func getVideosFromYoutube() {
         
         var videos = [Video]()
         
-        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
+        let endpoint = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=PLOU2XLYxmsIIM9h1Ybw2DuRw6o2fkNMeR%2CPLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w&key=AIzaSyDVBHhoMngCH4izHQGtzimN1hk_47qIHEs"
+        
+        Alamofire.request(.GET, endpoint, parameters: ["foo": "bar"])
             .responseJSON { response in
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                    if let items = JSON["items"] as? JSONArray {
+                        for item in items {
+                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, title = item.valueForKeyPath("snippet.title") as? String, description = item.valueForKeyPath("snippet.description") as? String, thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.highres.url") as? String {
+                                videos.append(Video(title: title, description: description, thumbnailUrl: thumbnailUrl, id: identifier))
+                            }
+                        }
+                    } else {
+                        print("Could not parse the JSON data from youtube.")
+                    }
                 }
         }
         
-        return videos
+        if delegate != nil {
+            delegate?.didFinishLoadingVideosFromYoutube(videos)
+        }
     }
 }
