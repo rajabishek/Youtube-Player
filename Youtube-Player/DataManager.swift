@@ -30,18 +30,21 @@ class DataManager {
                 if let JSON = response.result.value {
                     if let items = JSON["items"] as? JSONArray {
                         for item in items {
-                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, title = item.valueForKeyPath("snippet.title") as? String, description = item.valueForKeyPath("snippet.description") as? String, thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.highres.url") as? String {
+                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, let title = item.valueForKeyPath("snippet.title") as? String, let description = item.valueForKeyPath("snippet.description") as? String, let thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.maxres.url") as? String {
                                 videos.append(Video(title: title, description: description, thumbnailUrl: thumbnailUrl, id: identifier))
+                            } else {
+                                print("Could not parse the JSON data from youtube.")
                             }
                         }
                     } else {
                         print("Could not parse the JSON data from youtube.")
                     }
                 }
-        }
-        
-        if delegate != nil {
-            delegate?.didFinishLoadingVideosFromYoutube(videos)
+                
+                if self.delegate != nil {
+                    print(videos.count)
+                    self.delegate?.didFinishLoadingVideosFromYoutube(videos)
+                }
         }
     }
 }
