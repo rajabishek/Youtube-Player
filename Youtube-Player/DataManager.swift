@@ -10,18 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias JSONArray = [AnyObject]
-
 protocol DataManagerDelegate {
     func didFinishLoadingVideosFromYoutube(videos: [Video])
-}
-
-extension String {
-    func capitaliseFirstLetter() -> String {
-        let lowercaseString = self.lowercaseString
-        
-        return lowercaseString.stringByReplacingCharactersInRange(lowercaseString.startIndex...lowercaseString.startIndex, withString: String(lowercaseString[lowercaseString.startIndex]).uppercaseString)
-    }
 }
 
 class DataManager {
