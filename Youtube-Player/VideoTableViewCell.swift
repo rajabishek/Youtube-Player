@@ -23,7 +23,6 @@ class VideoTableViewCell: UITableViewCell {
         if let url = NSURL(string: video.thumbnailUrl) {
             videoImageView.kf_setImageWithURL(url)
         }
-        
     }
     
     override func awakeFromNib() {

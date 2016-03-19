@@ -16,6 +16,14 @@ protocol DataManagerDelegate {
     func didFinishLoadingVideosFromYoutube(videos: [Video])
 }
 
+extension String {
+    func capitaliseFirstLetter() -> String {
+        let lowercaseString = self.lowercaseString
+        
+        return lowercaseString.stringByReplacingCharactersInRange(lowercaseString.startIndex...lowercaseString.startIndex, withString: String(lowercaseString[lowercaseString.startIndex]).uppercaseString)
+    }
+}
+
 class DataManager {
     
     var delegate: DataManagerDelegate?
@@ -43,7 +51,7 @@ class DataManager {
                         let json = JSON(value)
                         for (_, item):(String, JSON) in json["items"] {
                             if let identifier = item["snippet"]["channelId"].string, let title = item["snippet"]["title"].string, let description = item["snippet"]["description"].string, let thumbnailUrl = item["snippet"]["thumbnails"]["high"]["url"].string {
-                                videos.append(Video(title: title, description: description, thumbnailUrl: thumbnailUrl, id: identifier))
+                                videos.append(Video(title: title.capitaliseFirstLetter(), description: description.capitaliseFirstLetter(), thumbnailUrl: thumbnailUrl, id: identifier))
                             } else {
                                 print("Could not parse the JSON data from youtube.")
                             }
