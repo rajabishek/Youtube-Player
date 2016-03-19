@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 typealias JSONArray = [AnyObject]
 
@@ -35,26 +36,26 @@ class DataManager {
         let secretKey = "AIzaSyDVBHhoMngCH4izHQGtzimN1hk_47qIHEs"
         let endpoint = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(playlistIdentifier)&maxResults=50&key=\(secretKey)"
         
-        Alamofire.request(.GET, endpoint, parameters: ["foo": "bar"])
-            .responseJSON { response in
-                if let JSON = response.result.value {
-                    if let items = JSON["items"] as? JSONArray {
-                        for item in items {
-                            if let identifier = item.valueForKeyPath("snippet.channelId") as? String, let title = item.valueForKeyPath("snippet.title") as? String, let description = item.valueForKeyPath("snippet.description") as? String, let thumbnailUrl = item.valueForKeyPath("snippet.thumbnails.high.url") as? String {
+        Alamofire.request(.GET, endpoint).responseJSON { response in
+            switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        for (_, item):(String, JSON) in json["items"] {
+                            if let identifier = item["snippet"]["channelId"].string, let title = item["snippet"]["title"].string, let description = item["snippet"]["description"].string, let thumbnailUrl = item["snippet"]["thumbnails"]["high"]["url"].string {
                                 videos.append(Video(title: title, description: description, thumbnailUrl: thumbnailUrl, id: identifier))
                             } else {
                                 print("Could not parse the JSON data from youtube.")
                             }
                         }
-                    } else {
-                        print("Could not parse the JSON data from youtube.")
+                        if self.delegate != nil {
+                            print(videos.count)
+                            self.delegate?.didFinishLoadingVideosFromYoutube(videos)
+                        }
                     }
-                }
-                
-                if self.delegate != nil {
-                    print(videos.count)
-                    self.delegate?.didFinishLoadingVideosFromYoutube(videos)
-                }
+                case .Failure(let error):
+                    print(error)
+            }
         }
     }
 }
