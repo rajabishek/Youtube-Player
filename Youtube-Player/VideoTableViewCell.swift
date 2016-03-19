@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class VideoTableViewCell: UITableViewCell {
 
@@ -19,7 +20,10 @@ class VideoTableViewCell: UITableViewCell {
     func populateCellWithDataFromVideo(video: Video) {
         
         titleTextLabel.text = video.title
-        DataManager().getImageFromUrl(video.thumbnailUrl) { data in self.videoImageView.image = UIImage(data: data) }
+        if let url = NSURL(string: video.thumbnailUrl) {
+            videoImageView.kf_setImageWithURL(url)
+        }
+        
     }
     
     override func awakeFromNib() {
