@@ -13,6 +13,7 @@
 		CC4869981D5B082A001A4B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC4869971D5B082A001A4B16 /* Assets.xcassets */; };
 		CC48699B1D5B082A001A4B16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4869991D5B082A001A4B16 /* LaunchScreen.storyboard */; };
 		CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D71D5B5F6700286A87 /* HomeController.swift */; };
+		CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CC48699A1D5B082A001A4B16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC48699C1D5B082A001A4B16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCED09D71D5B5F6700286A87 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		CC3E7C5A1D5B09E8009FAC3B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			files = (
 				CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */,
 				CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */,
+				CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */,
 				CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
