@@ -49,17 +49,13 @@ class HomeController: UICollectionViewController {
         navigationController?.navigationBar.barTintColor = Color.cardinalRed
         navigationController?.navigationBar.translucent = false
         
-        let mainTitle = NSMutableAttributedString(string:"Home", attributes:[NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size:16) ?? UIFont.systemFontOfSize(16), NSForegroundColorAttributeName: UIColor.whiteColor()])
-        
-        let subTitle = NSAttributedString(string:"\nrajabishek@hotmail.com", attributes:[NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size:12) ?? UIFont.systemFontOfSize(12), NSForegroundColorAttributeName: UIColor.whiteColor()])
-        
-        mainTitle.appendAttributedString(subTitle)
-        
+        //Sets the naigation bar title
         let mainLabel = UILabel(frame: CGRectMake(0, 0, 440, 44))
-        mainLabel.attributedText = mainTitle
-        mainLabel.numberOfLines = 0
+        //mainLabel.text = "Home"
         mainLabel.backgroundColor = UIColor.clearColor()
         mainLabel.textAlignment = .Center
+        mainLabel.font = UIFont(name: "AvenirNext-Regular", size:16) ?? UIFont.systemFontOfSize(16)
+        mainLabel.textColor = UIColor.whiteColor()
         mainLabel.sizeToFit()
         
         navigationItem.titleView = mainLabel
@@ -68,6 +64,19 @@ class HomeController: UICollectionViewController {
         //Removes the shadow under the navigation bar
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        
+        //Setup the navigation bar button items
+        let searchBarButtonItem = UIBarButtonItem(image: UIImage(named: "search-icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(handleSearch))
+        searchBarButtonItem.tintColor = UIColor.whiteColor()
+        
+        let moreBarButtonItem = UIBarButtonItem(image: UIImage(named: "more-icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(handleSearch))
+        moreBarButtonItem.tintColor = UIColor.whiteColor()
+        
+        navigationItem.rightBarButtonItems = [moreBarButtonItem, searchBarButtonItem]
+    }
+    
+    func handleSearch() {
+        
     }
     
     private func setupMenuBar() {
