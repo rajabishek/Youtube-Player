@@ -23,6 +23,8 @@ class HomeController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         collectionView?.backgroundColor = UIColor.whiteColor()
+        
+        navigationItem.title = "Home"
     }
 
     override func didReceiveMemoryWarning() {
