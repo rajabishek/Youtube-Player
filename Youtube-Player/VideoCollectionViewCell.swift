@@ -50,6 +50,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         addSubview(mainImageView)
         addSubview(profileImageView)
         addSubview(mainLabel)
+        addSubview(subLabel)
         
         var allConstraints = [NSLayoutConstraint]()
         
