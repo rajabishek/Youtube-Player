@@ -38,12 +38,15 @@ class VideoCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.yellowColor()
         
         addSubview(mainImageView)
+        addSubview(profileImageView)
         
         var allConstraints = [NSLayoutConstraint]()
         
         allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": mainImageView])
         
-        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": mainImageView])
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": mainImageView, "v1": profileImageView])
+        
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-16-[v0(48)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": profileImageView])
         
         NSLayoutConstraint.activateConstraints(allConstraints)
     }
