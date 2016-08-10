@@ -31,19 +31,23 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.purpleColor()
+        label.text = "Luke Cage | Official Trailer [HD] | Netflix"
+        label.font = UIFont(name: "AvenirNext-Regular", size: 16)
         return label
     }()
     
     let subLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.darkGrayColor()
+        label.text = "In this Marvel live action series, a street-fighting ex-con battles crime on the streets"
+        label.numberOfLines = 2
+        label.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        label.textColor = Color.battleShipGray
         return label
     }()
     
     let cellSeparator: UIView = {
         let line = UIView()
-        line.backgroundColor = UIColor.blackColor()
+        line.backgroundColor = Color.wildSand
         return line
     }()
     
@@ -58,7 +62,6 @@ class VideoCollectionViewCell: UICollectionViewCell {
     }
     
     func setupLayout() {
-        backgroundColor = UIColor.yellowColor()
         
         addSubview(mainImageView)
         addSubview(profileImageView)
@@ -73,12 +76,12 @@ class VideoCollectionViewCell: UICollectionViewCell {
         allConstraints += getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
         
         allConstraints += getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
-        allConstraints += getConstraintsWithVisualFormat("V:[v0(30)]", views: subLabel)
+        allConstraints += getConstraintsWithVisualFormat("V:[v0(40)]", views: subLabel)
         allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
         
         allConstraints.append(NSLayoutConstraint(item: mainLabel, attribute: .Top, relatedBy: .Equal, toItem: mainImageView, attribute: .Bottom, multiplier: 1, constant: 8))
         
-        allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Top, relatedBy: .Equal, toItem: mainLabel, attribute: .Bottom, multiplier: 1, constant: 8))
+        allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Top, relatedBy: .Equal, toItem: mainLabel, attribute: .Bottom, multiplier: 1, constant: 0))
         allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Left, relatedBy: .Equal, toItem: profileImageView, attribute: .Right, multiplier: 1, constant: 8))
         allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Right, relatedBy: .Equal, toItem: mainLabel, attribute: .Right, multiplier: 1, constant: 0))
         

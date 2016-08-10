@@ -14,6 +14,8 @@
 		CC48699B1D5B082A001A4B16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4869991D5B082A001A4B16 /* LaunchScreen.storyboard */; };
 		CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D71D5B5F6700286A87 /* HomeController.swift */; };
 		CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */; };
+		CCED09DD1D5B829200286A87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09DC1D5B829200286A87 /* Extensions.swift */; };
+		CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09DE1D5B82D300286A87 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		CC48699C1D5B082A001A4B16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCED09D71D5B5F6700286A87 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		CCED09DC1D5B829200286A87 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CCED09DE1D5B82D300286A87 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		CC48698C1D5B082A001A4B16 /* Youtube-Player */ = {
 			isa = PBXGroup;
 			children = (
+				CCED09DB1D5B827600286A87 /* Helpers */,
 				CC3E7C5C1D5B0A01009FAC3B /* Model */,
 				CC3E7C5B1D5B09F4009FAC3B /* View */,
 				CC3E7C5D1D5B0A0E009FAC3B /* Controller */,
@@ -108,6 +113,15 @@
 				CC3E7C591D5B09E0009FAC3B /* Supporting Files */,
 			);
 			path = "Youtube-Player";
+			sourceTree = "<group>";
+		};
+		CCED09DB1D5B827600286A87 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CCED09DC1D5B829200286A87 /* Extensions.swift */,
+				CCED09DE1D5B82D300286A87 /* Constants.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCED09DD1D5B829200286A87 /* Extensions.swift in Sources */,
 				CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */,
 				CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */,
 				CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */,
 				CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */,
+				CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
