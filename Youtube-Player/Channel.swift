@@ -8,4 +8,14 @@
 
 import UIKit
 
-
+class Channel {
+    
+    let name: String
+    
+    let profileImageName: String
+    
+    init(name: String, profileImageName: String) {
+        self.name = name
+        self.profileImageName = profileImageName
+    }
+}
