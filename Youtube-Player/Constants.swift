@@ -16,3 +16,19 @@ class Color {
     
     static var cardinalRed = UIColor(red:0.78, green:0.11, blue:0.25, alpha:1.00)
 }
+
+class Constraint {
+    
+    static func getConstraintsWithVisualFormat(format: String, views: UIView...) -> [NSLayoutConstraint] {
+        
+        var viewsDictionary = [String: UIView]()
+        
+        for (index, view) in views.enumerate() {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            viewsDictionary["v\(index)"] = view
+        }
+        
+        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary)
+    }
+
+}

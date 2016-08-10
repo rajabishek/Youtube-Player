@@ -71,13 +71,13 @@ class VideoCollectionViewCell: UICollectionViewCell {
         
         var allConstraints = [NSLayoutConstraint]()
         
-        allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
-        allConstraints += getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-[v2(1)]|", views: mainImageView, profileImageView, cellSeparator)
-        allConstraints += getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-[v2(1)]|", views: mainImageView, profileImageView, cellSeparator)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
         
-        allConstraints += getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
-        allConstraints += getConstraintsWithVisualFormat("V:[v0(40)]", views: subLabel)
-        allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(40)]", views: subLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
         
         allConstraints.append(NSLayoutConstraint(item: mainLabel, attribute: .Top, relatedBy: .Equal, toItem: mainImageView, attribute: .Bottom, multiplier: 1, constant: 8))
         
@@ -87,17 +87,5 @@ class VideoCollectionViewCell: UICollectionViewCell {
         
         
         NSLayoutConstraint.activateConstraints(allConstraints)
-    }
-    
-    func getConstraintsWithVisualFormat(format: String, views: UIView...) -> [NSLayoutConstraint] {
-        
-        var viewsDictionary = [String: UIView]()
-        
-        for (index, view) in views.enumerate() {
-            view.translatesAutoresizingMaskIntoConstraints = false
-            viewsDictionary["v\(index)"] = view
-        }
-        
-        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary)
     }
 }

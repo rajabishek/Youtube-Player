@@ -66,24 +66,11 @@ class HomeController: UICollectionViewController {
         
         var allConstraints = [NSLayoutConstraint]()
         
-        allConstraints += getConstraintsWithVisualFormat("H:|[v0]|", views: menuNavigationBar)
-        allConstraints += getConstraintsWithVisualFormat("V:|[v0(40)]", views: menuNavigationBar)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: menuNavigationBar)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0(40)]", views: menuNavigationBar)
         
         NSLayoutConstraint.activateConstraints(allConstraints)
     }
-    
-    func getConstraintsWithVisualFormat(format: String, views: UIView...) -> [NSLayoutConstraint] {
-        
-        var viewsDictionary = [String: UIView]()
-        
-        for (index, view) in views.enumerate() {
-            view.translatesAutoresizingMaskIntoConstraints = false
-            viewsDictionary["v\(index)"] = view
-        }
-        
-        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary)
-    }
-
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
