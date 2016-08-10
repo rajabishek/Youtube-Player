@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48698D1D5B082A001A4B16 /* AppDelegate.swift */; };
-		CC4869901D5B082A001A4B16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48698F1D5B082A001A4B16 /* ViewController.swift */; };
 		CC4869931D5B082A001A4B16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4869911D5B082A001A4B16 /* Main.storyboard */; };
 		CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC4869941D5B082A001A4B16 /* Youtube_Player.xcdatamodeld */; };
 		CC4869981D5B082A001A4B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC4869971D5B082A001A4B16 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		CC48698A1D5B082A001A4B16 /* Youtube-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC48698D1D5B082A001A4B16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC48698F1D5B082A001A4B16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC4869921D5B082A001A4B16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC4869951D5B082A001A4B16 /* Youtube_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Youtube_Player.xcdatamodel; sourceTree = "<group>"; };
 		CC4869971D5B082A001A4B16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 		CC3E7C5D1D5B0A0E009FAC3B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC48698F1D5B082A001A4B16 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC4869901D5B082A001A4B16 /* ViewController.swift in Sources */,
 				CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */,
 				CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */,
 			);
