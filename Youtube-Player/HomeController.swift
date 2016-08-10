@@ -32,6 +32,9 @@ class HomeController: UICollectionViewController {
         customizeNavigationBar()
         
         setupMenuBar()
+        
+        collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
     }
     
     func customizeNavigationBar() {
@@ -67,7 +70,7 @@ class HomeController: UICollectionViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: menuNavigationBar)
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0(40)]", views: menuNavigationBar)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0(50)]", views: menuNavigationBar)
         
         NSLayoutConstraint.activateConstraints(allConstraints)
     }

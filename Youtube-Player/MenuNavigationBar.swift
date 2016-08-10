@@ -32,7 +32,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func setupLayout() {
         
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.registerClass(MenuCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
         backgroundColor = Color.cardinalRed
         addSubview(collectionView)
@@ -53,7 +53,6 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.whiteColor()
         return cell
     }
     

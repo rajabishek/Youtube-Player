@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoCollectionViewCell: UICollectionViewCell {
+class VideoCollectionViewCell: CustomCollectionViewCell {
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
@@ -51,17 +51,10 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return line
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override func setupLayout() {
         
-        setupLayout()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupLayout() {
+        super.setupLayout()
         
         addSubview(mainImageView)
         addSubview(profileImageView)
