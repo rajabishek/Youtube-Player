@@ -13,12 +13,17 @@ class VideoCollectionViewCell: UICollectionViewCell {
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.blueColor()
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.redColor()
+        imageView.layer.cornerRadius = 24
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
