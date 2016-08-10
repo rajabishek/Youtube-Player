@@ -43,12 +43,17 @@ class VideoCollectionViewCell: UICollectionViewCell {
         
         addSubview(mainImageView)
         addSubview(profileImageView)
+        addSubview(mainLabel)
         
         var allConstraints = [NSLayoutConstraint]()
         
         allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
         allConstraints += getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-|", views: mainImageView, profileImageView)
-        allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0(48)]", views: profileImageView)
+        allConstraints += getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
+        allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
+        
+        allConstraints.append(NSLayoutConstraint(item: mainLabel, attribute: .Top, relatedBy: .Equal, toItem: mainImageView, attribute: .Bottom, multiplier: 1, constant: 8))
+        
         
         NSLayoutConstraint.activateConstraints(allConstraints)
     }
