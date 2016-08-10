@@ -17,6 +17,13 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.redColor()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
