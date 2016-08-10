@@ -37,6 +37,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC3E7C591D5B09E0009FAC3B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC48698D1D5B082A001A4B16 /* AppDelegate.swift */,
+				CC4869971D5B082A001A4B16 /* Assets.xcassets */,
+				CC48699C1D5B082A001A4B16 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC3E7C5A1D5B09E8009FAC3B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		CC3E7C5B1D5B09F4009FAC3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC4869911D5B082A001A4B16 /* Main.storyboard */,
+				CC4869991D5B082A001A4B16 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CC3E7C5C1D5B0A01009FAC3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC4869941D5B082A001A4B16 /* Youtube_Player.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CC3E7C5D1D5B0A0E009FAC3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC48698F1D5B082A001A4B16 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		CC4869811D5B082A001A4B16 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +98,11 @@
 		CC48698C1D5B082A001A4B16 /* Youtube-Player */ = {
 			isa = PBXGroup;
 			children = (
-				CC48698D1D5B082A001A4B16 /* AppDelegate.swift */,
-				CC48698F1D5B082A001A4B16 /* ViewController.swift */,
-				CC4869911D5B082A001A4B16 /* Main.storyboard */,
-				CC4869971D5B082A001A4B16 /* Assets.xcassets */,
-				CC4869991D5B082A001A4B16 /* LaunchScreen.storyboard */,
-				CC48699C1D5B082A001A4B16 /* Info.plist */,
-				CC4869941D5B082A001A4B16 /* Youtube_Player.xcdatamodeld */,
+				CC3E7C5C1D5B0A01009FAC3B /* Model */,
+				CC3E7C5B1D5B09F4009FAC3B /* View */,
+				CC3E7C5D1D5B0A0E009FAC3B /* Controller */,
+				CC3E7C5A1D5B09E8009FAC3B /* Cells */,
+				CC3E7C591D5B09E0009FAC3B /* Supporting Files */,
 			);
 			path = "Youtube-Player";
 			sourceTree = "<group>";
@@ -292,6 +332,7 @@
 				CC4869A11D5B082A001A4B16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
