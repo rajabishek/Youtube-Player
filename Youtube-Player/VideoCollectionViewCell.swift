@@ -56,6 +56,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         let label = UILabel()
         label.text = "Luke Cage | Official Trailer [HD] | Netflix"
         label.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,6 +65,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         let label = UILabel()
         label.text = "In this Marvel live action series, a street-fighting ex-con battles crime on the streets"
         label.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        label.numberOfLines = 2
         label.textColor = Color.battleShipGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -90,7 +92,8 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         var allConstraints = [NSLayoutConstraint]()
         
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-[v2(1)]|", views: mainImageView, profileImageView, cellSeparator)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|-16-[v0(150)]-8-[v1(48)]", views: mainImageView, profileImageView)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(1)]|", views: cellSeparator)
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
         
