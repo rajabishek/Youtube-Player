@@ -15,6 +15,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = UIColor.blueColor()
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "banner")
         return imageView
     }()
     
