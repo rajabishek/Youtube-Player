@@ -34,6 +34,12 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let cellSeparator: UIView = {
+        let line = UIView()
+        line.backgroundColor = UIColor.blackColor()
+        return line
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -55,7 +61,9 @@ class VideoCollectionViewCell: UICollectionViewCell {
         var allConstraints = [NSLayoutConstraint]()
         
         allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
-        allConstraints += getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-|", views: mainImageView, profileImageView)
+        allConstraints += getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-[v2(1)]|", views: mainImageView, profileImageView, cellSeparator)
+        allConstraints += getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
+        
         allConstraints += getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
         allConstraints += getConstraintsWithVisualFormat("V:[v0(20)]", views: subLabel)
         allConstraints += getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
