@@ -43,6 +43,9 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: collectionView)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0]|", views: collectionView)
         NSLayoutConstraint.activateConstraints(allConstraints)
+        
+        let selectedIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+        collectionView.selectItemAtIndexPath(selectedIndexPath, animated: false, scrollPosition: .None)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

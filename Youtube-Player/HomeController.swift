@@ -37,6 +37,13 @@ class HomeController: UICollectionViewController {
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let selectedIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+        menuNavigationBar.collectionView.selectItemAtIndexPath(selectedIndexPath, animated: false, scrollPosition: .None)
+    }
+    
     func customizeNavigationBar() {
         
         navigationController?.navigationBar.barTintColor = Color.cardinalRed

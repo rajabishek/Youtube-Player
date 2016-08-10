@@ -12,6 +12,18 @@ class MenuCollectionViewCell: CustomCollectionViewCell {
     
     let iconImageView = UIImageView()
     
+    override var highlighted: Bool {
+        didSet {
+            iconImageView.tintColor = highlighted ? UIColor.whiteColor() : UIColor.blackColor()
+        }
+    }
+    
+    override var selected: Bool {
+        didSet {
+            iconImageView.tintColor = selected ? UIColor.whiteColor() : UIColor.blackColor()
+        }
+    }
+    
     func populateImage(named: String) {
         iconImageView.image = UIImage(named: named)?.imageWithRenderingMode(.AlwaysTemplate)
         iconImageView.tintColor = UIColor.blackColor()
