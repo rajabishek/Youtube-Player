@@ -18,7 +18,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.redColor()g
+        imageView.backgroundColor = UIColor.redColor()
         return imageView
     }()
     
