@@ -10,6 +10,28 @@ import UIKit
 
 class VideoCollectionViewCell: CustomCollectionViewCell {
     
+    var video: Video! {
+        didSet {
+            mainImageView.image = UIImage(named: video.thumbnailImageName)
+            profileImageView.image = UIImage(named: video.channel.profileImageName)
+            
+            mainLabel.text = video.title
+            
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle  = .ShortStyle
+            let uploadDate = dateFormatter.stringFromDate(video.uploadDate)
+            
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            if let numberOfViews = numberFormatter.stringFromNumber(video.numberOfViews) {
+                subLabel.text = "\(video.channel.name) - \(numberOfViews) - \(uploadDate)"
+            } else {
+                subLabel.text = "\(video.channel.name) - \(uploadDate)"
+            }
+        }
+    }
+    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.blueColor()

@@ -12,6 +12,13 @@ private let reuseIdentifier = "Cell"
 
 class HomeController: UICollectionViewController {
     
+    let videos: [Video] = {
+        let channel = Channel(name: "Channel Name", profileImageName: "profile")
+        let video = Video(thumbnailImageName: "banner", title: "Taylor Swift - Blank Space", numberOfViews: 3483388321, uploadDate: NSDate(), channel: channel)
+        
+        return [video]
+    }()
+    
     let menuNavigationBar: MenuNavigationBar = {
         let menu  = MenuNavigationBar()
         return menu
@@ -117,11 +124,12 @@ class HomeController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return videos.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! VideoCollectionViewCell
+        cell.video = videos[indexPath.row]
         return cell
     }
 }

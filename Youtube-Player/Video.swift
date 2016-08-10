@@ -18,10 +18,13 @@ class Video {
     
     let uploadDate: NSDate
     
-    init(thumbnailImageName: String, title: String, numberOfViews: NSNumber, uploadDate: NSDate) {
+    let channel: Channel
+    
+    init(thumbnailImageName: String, title: String, numberOfViews: NSNumber, uploadDate: NSDate, channel: Channel) {
         self.thumbnailImageName = thumbnailImageName
         self.title = title
         self.numberOfViews = numberOfViews
         self.uploadDate = uploadDate
+        self.channel = channel
     }
 }
