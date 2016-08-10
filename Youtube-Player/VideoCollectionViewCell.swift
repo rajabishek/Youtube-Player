@@ -17,10 +17,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
             
             mainLabel.text = video.title
             
-            
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle  = .ShortStyle
-            let uploadDate = dateFormatter.stringFromDate(video.uploadDate)
+            let uploadDate = video.uploadDate.timeAgoSinceDate(true)
             
             let numberFormatter = NSNumberFormatter()
             numberFormatter.numberStyle = .DecimalStyle
