@@ -56,4 +56,12 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         cell.backgroundColor = UIColor.whiteColor()
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: frame.width/4, height: frame.height)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
 }
