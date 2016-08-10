@@ -12,7 +12,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.redColor()
+        imageView.backgroundColor = UIColor.blueColor()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -29,5 +29,15 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     func setupLayout() {
         backgroundColor = UIColor.yellowColor()
+        
+        addSubview(mainImageView)
+        
+        var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": mainImageView])
+        
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": mainImageView])
+        
+        NSLayoutConstraint.activateConstraints(allConstraints)
     }
 }
