@@ -51,10 +51,10 @@ class HomeController: UICollectionViewController {
         
         //Sets the naigation bar title
         let mainLabel = UILabel(frame: CGRectMake(0, 0, 440, 44))
-        //mainLabel.text = "Home"
+        mainLabel.text = "Home"
         mainLabel.backgroundColor = UIColor.clearColor()
         mainLabel.textAlignment = .Center
-        mainLabel.font = UIFont(name: "AvenirNext-Regular", size:16) ?? UIFont.systemFontOfSize(16)
+        mainLabel.font = UIFont(name: "AvenirNext-Medium", size:17) ?? UIFont.systemFontOfSize(17)
         mainLabel.textColor = UIColor.whiteColor()
         mainLabel.sizeToFit()
         
