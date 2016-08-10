@@ -10,4 +10,18 @@ import UIKit
 
 class VideoCollectionViewCell: UICollectionViewCell {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupLayout()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupLayout() {
+        backgroundColor = UIColor.redColor()
+    }
+    
 }
