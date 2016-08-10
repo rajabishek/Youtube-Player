@@ -65,6 +65,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 200)
+        let mainImageLength = self.view.frame.width - 32
+        let mainImageHeight = (mainImageLength * 9) / 16
+        let totalHeight = 16 + mainImageHeight + 8 + 48 + 16 + 1
+        return CGSize(width: self.view.frame.width, height: totalHeight)
     }
 }
