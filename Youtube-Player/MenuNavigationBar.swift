@@ -8,11 +8,15 @@
 
 import UIKit
 
-class MenuNavigationBar: UIView {
+class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let collectionView: UICollectionView = {
+    let cellIdentifier = "cellId"
+    
+    lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = Color.cardinalRed
+        collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -28,6 +32,8 @@ class MenuNavigationBar: UIView {
     
     func setupLayout() {
         
+        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        
         backgroundColor = Color.cardinalRed
         addSubview(collectionView)
         
@@ -35,5 +41,19 @@ class MenuNavigationBar: UIView {
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: collectionView)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0]|", views: collectionView)
         NSLayoutConstraint.activateConstraints(allConstraints)
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
+        cell.backgroundColor = UIColor.whiteColor()
+        return cell
     }
 }
