@@ -16,6 +16,7 @@
 		CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */; };
 		CCED09DD1D5B829200286A87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09DC1D5B829200286A87 /* Extensions.swift */; };
 		CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09DE1D5B82D300286A87 /* Constants.swift */; };
+		CCED09E11D5B8A4F00286A87 /* MenuNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09E01D5B8A4F00286A87 /* MenuNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCED09DC1D5B829200286A87 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CCED09DE1D5B82D300286A87 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CCED09E01D5B8A4F00286A87 /* MenuNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */,
+				CCED09E01D5B8A4F00286A87 /* MenuNavigationBar.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */,
 				CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */,
 				CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */,
+				CCED09E11D5B8A4F00286A87 /* MenuNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

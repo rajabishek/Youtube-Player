@@ -11,6 +11,11 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class HomeController: UICollectionViewController {
+    
+    let menuNavigationBar: MenuNavigationBar = {
+        let menu  = MenuNavigationBar()
+        return menu
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,8 @@ class HomeController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.whiteColor()
         
         customizeNavigationBar()
+        
+        setupMenuBar()
     }
     
     func customizeNavigationBar() {
@@ -46,9 +53,37 @@ class HomeController: UICollectionViewController {
         mainLabel.sizeToFit()
         
         navigationItem.titleView = mainLabel
-        
         navigationController?.navigationBar.barStyle = .Black
+        
+        //Removes the shadow under the navigation bar
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     }
+    
+    private func setupMenuBar() {
+        
+        view.addSubview(menuNavigationBar)
+        
+        var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints += getConstraintsWithVisualFormat("H:|[v0]|", views: menuNavigationBar)
+        allConstraints += getConstraintsWithVisualFormat("V:|[v0(40)]", views: menuNavigationBar)
+        
+        NSLayoutConstraint.activateConstraints(allConstraints)
+    }
+    
+    func getConstraintsWithVisualFormat(format: String, views: UIView...) -> [NSLayoutConstraint] {
+        
+        var viewsDictionary = [String: UIView]()
+        
+        for (index, view) in views.enumerate() {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            viewsDictionary["v\(index)"] = view
+        }
+        
+        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary)
+    }
+
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
