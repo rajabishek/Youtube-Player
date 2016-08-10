@@ -59,14 +59,3 @@ class HomeController: UICollectionViewController {
         return cell
     }
 }
-
-extension HomeController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 200)
-    }
-}
