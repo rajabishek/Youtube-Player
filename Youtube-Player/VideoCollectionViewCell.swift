@@ -10,6 +10,13 @@ import UIKit
 
 class VideoCollectionViewCell: UICollectionViewCell {
     
+    let mainImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.redColor()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -21,7 +28,6 @@ class VideoCollectionViewCell: UICollectionViewCell {
     }
     
     func setupLayout() {
-        backgroundColor = UIColor.redColor()
+        backgroundColor = UIColor.yellowColor()
     }
-    
 }
