@@ -10,7 +10,11 @@ import UIKit
 
 class MenuCollectionViewCell: CustomCollectionViewCell {
     
-    let iconImageView = UIImageView()
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     override var highlighted: Bool {
         didSet {

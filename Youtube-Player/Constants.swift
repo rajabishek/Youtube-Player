@@ -24,7 +24,6 @@ class Constraint {
         var viewsDictionary = [String: UIView]()
         
         for (index, view) in views.enumerate() {
-            view.translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary["v\(index)"] = view
         }
         

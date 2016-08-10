@@ -19,6 +19,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         collectionView.backgroundColor = Color.cardinalRed
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     

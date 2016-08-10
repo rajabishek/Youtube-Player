@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import Fakery
 
 private let reuseIdentifier = "Cell"
 
 class HomeController: UICollectionViewController {
     
     let videos: [Video] = {
-        let channel = Channel(name: "Channel Name", profileImageName: "profile")
-        let video = Video(thumbnailImageName: "banner", title: "Taylor Swift - Blank Space", numberOfViews: 3483388321, uploadDate: NSDate(), channel: channel)
         
-        return [video]
+        var videos = [Video]()
+        
+        let faker = Faker(locale: "en")
+        for i in 1...10 {
+            let channel = Channel(name: faker.lorem.word().capitalizedString, profileImageName: "profile")
+            videos.append(Video(thumbnailImageName: "banner", title: faker.lorem.sentence(wordsAmount: 4), numberOfViews: faker.number.randomInt(min: 123456, max: 83838383), uploadDate: NSDate(), channel: channel))
+            
+        }
+        
+        return videos
     }()
     
     let menuNavigationBar: MenuNavigationBar = {
         let menu  = MenuNavigationBar()
+        menu.translatesAutoresizingMaskIntoConstraints = false
         return menu
     }()
 

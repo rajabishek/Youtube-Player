@@ -16,6 +16,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
             profileImageView.image = UIImage(named: video.channel.profileImageName)
             
             mainLabel.text = video.title
+            mainLabel.sizeToFit()
             
             let uploadDate = video.uploadDate.timeAgoSinceDate(true)
             
@@ -26,6 +27,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
             } else {
                 subLabel.text = "\(video.channel.name) - \(uploadDate)"
             }
+            subLabel.sizeToFit()
         }
     }
     
@@ -35,6 +37,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "banner")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -45,6 +48,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "profile")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -52,21 +56,23 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         let label = UILabel()
         label.text = "Luke Cage | Official Trailer [HD] | Netflix"
         label.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let subLabel: UILabel = {
         let label = UILabel()
         label.text = "In this Marvel live action series, a street-fighting ex-con battles crime on the streets"
-        label.numberOfLines = 2
         label.font = UIFont(name: "AvenirNext-Regular", size: 12)
         label.textColor = Color.battleShipGray
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let cellSeparator: UIView = {
         let line = UIView()
         line.backgroundColor = Color.wildSand
+        line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
     
@@ -86,15 +92,12 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0]-16-|", views: mainImageView)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:|-16-[v0]-8-[v1(48)]-16-[v2(1)]|", views: mainImageView, profileImageView, cellSeparator)
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: cellSeparator)
-        
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(40)]", views: subLabel)
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0(48)]-8-[v1]-16-|", views: profileImageView, mainLabel)
         
         allConstraints.append(NSLayoutConstraint(item: mainLabel, attribute: .Top, relatedBy: .Equal, toItem: mainImageView, attribute: .Bottom, multiplier: 1, constant: 8))
         
         allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Top, relatedBy: .Equal, toItem: mainLabel, attribute: .Bottom, multiplier: 1, constant: 0))
-        allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Left, relatedBy: .Equal, toItem: profileImageView, attribute: .Right, multiplier: 1, constant: 8))
+        allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Left, relatedBy: .Equal, toItem: mainLabel, attribute: .Left, multiplier: 1, constant: 0))
         allConstraints.append(NSLayoutConstraint(item: subLabel, attribute: .Right, relatedBy: .Equal, toItem: mainLabel, attribute: .Right, multiplier: 1, constant: 0))
         
         
