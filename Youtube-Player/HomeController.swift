@@ -72,12 +72,16 @@ class HomeController: UICollectionViewController {
             print("The url is not a valid one")
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchVideos()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchVideos()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
