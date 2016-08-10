@@ -12,6 +12,8 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     let cellIdentifier = "cellId"
     
+    let iconNames = ["home-icon", "play-icon", "camera-icon", "bell-icon"]
+    
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = Color.cardinalRed
@@ -48,11 +50,12 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return iconNames.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! MenuCollectionViewCell
+        cell.populateImage(iconNames[indexPath.row])
         return cell
     }
     
