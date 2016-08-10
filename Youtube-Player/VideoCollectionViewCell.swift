@@ -25,6 +25,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 24
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "profile")
         return imageView
     }()
     
