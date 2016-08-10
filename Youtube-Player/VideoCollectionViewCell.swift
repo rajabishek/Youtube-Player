@@ -30,7 +30,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     let subLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.purpleColor()
+        label.backgroundColor = UIColor.greenColor()
         return label
     }()
     
