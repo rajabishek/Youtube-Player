@@ -22,6 +22,12 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let mainLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.purpleColor()
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
