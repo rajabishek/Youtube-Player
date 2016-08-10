@@ -13,28 +13,70 @@ private let reuseIdentifier = "Cell"
 
 class HomeController: UICollectionViewController {
     
-    let videos: [Video] = {
+    var videos = [Video]()
         
-        var videos = [Video]()
-        
-        let faker = Faker(locale: "en")
-        for i in 1...10 {
-            let channel = Channel(name: faker.lorem.word().capitalizedString, profileImageName: "profile")
-            videos.append(Video(thumbnailImageName: "banner", title: faker.lorem.sentence(wordsAmount: 4), numberOfViews: faker.number.randomInt(min: 123456, max: 83838383), uploadDate: NSDate(), channel: channel))
-            
-        }
-        
-        return videos
-    }()
-    
     let menuNavigationBar: MenuNavigationBar = {
         let menu  = MenuNavigationBar()
         menu.translatesAutoresizingMaskIntoConstraints = false
         return menu
     }()
+    
+    func fetchVideos() {
+        
+        if let url = NSURL(string: "http://localhost:8080/home.json") {
+            
+            let request = NSURLRequest(URL: url)
+            let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                
+                if let responseError = error {
+                    print("Error calling GET on /home.json")
+                    print(responseError)
+                }
+                
+                if let responseData = data {
+                    do {
+                        
+                        if let videosData = try NSJSONSerialization.JSONObjectWithData(responseData, options: []) as? [[String: AnyObject]] {
+                            
+                            for video in videosData {
+                                if let channel = video["channel"] as? [String: AnyObject] {
+                                    
+                                    let channel = Channel(name: (channel["name"] as! String).capitalizedString, profileImageName: channel["profile_image_name"] as! String)
+                                    
+                                    self.videos.append(Video(thumbnailImageName: video["thumbnail_image_name"] as! String, title: video["title"] as! String, numberOfViews: video["number_of_views"] as! NSNumber, uploadDate: NSDate(), channel: channel))
+                                } else {
+                                    print("Could not parse the JSON file")
+                                }
+                            }
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.collectionView?.reloadData()
+                            })
+                            
+                        } else {
+                            print("Unable to convert the data to JSON")
+                        }
+                    } catch {
+                        print("Unable to convert the data to JSON")
+                    }
+                } else {
+                    print("There is no data from the endpoint")
+                }
+
+            })
+            task.resume()
+            
+        } else {
+            print("The url is not a valid one")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchVideos()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
