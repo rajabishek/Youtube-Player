@@ -24,7 +24,34 @@ class HomeController: UICollectionViewController {
         // Do any additional setup after loading the view.
         collectionView?.backgroundColor = UIColor.whiteColor()
         
-        navigationItem.title = "Home"
+        customizeNavigationBar()
+    }
+    
+    func customizeNavigationBar() {
+        
+        navigationController?.navigationBar.barTintColor = Color.cardinalRed
+        navigationController?.navigationBar.translucent = false
+        
+        let mainTitle = NSMutableAttributedString(string:"Home", attributes:[NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size:16) ?? UIFont.systemFontOfSize(16), NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        let subTitle = NSAttributedString(string:"\nrajabishek@hotmail.com", attributes:[NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size:12) ?? UIFont.systemFontOfSize(12), NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        mainTitle.appendAttributedString(subTitle)
+        
+        let mainLabel = UILabel(frame: CGRectMake(0, 0, 440, 44))
+        mainLabel.attributedText = mainTitle
+        mainLabel.numberOfLines = 0
+        mainLabel.backgroundColor = UIColor.clearColor()
+        mainLabel.textAlignment = .Center
+        mainLabel.sizeToFit()
+        
+        navigationItem.titleView = mainLabel
+        
+        navigationController?.navigationBar.barStyle = .Black
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 
     override func didReceiveMemoryWarning() {
