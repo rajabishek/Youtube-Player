@@ -15,6 +15,7 @@ class Setting {
     let iconImageName: String
     
     init(name: String, iconImageName: String) {
+        
         self.name = name
         self.iconImageName = iconImageName
     }
