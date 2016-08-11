@@ -28,19 +28,23 @@ class SettingsLauncher {
             
             window.addSubview(dimmingView)
             
-            collectionView.frame = CGRect(x: 0, y: window.frame.height - 200, width: window.frame.width, height: 200)
+            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
             window.addSubview(collectionView)
             
             UIView.animateWithDuration(0.3, animations: {
                 self.dimmingView.alpha = 1
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - 200, width: window.frame.width, height: 200)
             })
         }
     }
     
     @objc func dismissSettings() {
-        UIView.animateWithDuration(0.3, animations: {
-            self.dimmingView.alpha = 0
-        })
+        if let window = UIApplication.sharedApplication().keyWindow {
+            UIView.animateWithDuration(0.3, animations: {
+                self.dimmingView.alpha = 0
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
+            })
+        }
     }
 
     
