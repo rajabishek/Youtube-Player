@@ -10,6 +10,15 @@ import UIKit
 
 class SettingsCollectionViewCell: CustomCollectionViewCell {
     
+    let mainLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Luke Cage | Official Trailer [HD] | Netflix"
+        label.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func setupLayout() {
         super.setupLayout()
         
