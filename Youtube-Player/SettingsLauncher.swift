@@ -83,10 +83,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingsCollectionViewCell
-        let setting = settings[indexPath.row]
-        cell.iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
-        cell.iconImageView.tintColor = Color.battleShipGray
-        cell.mainLabel.text = setting.name
+        cell.setting = settings[indexPath.row]
         return cell
     }
     

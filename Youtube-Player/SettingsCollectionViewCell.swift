@@ -10,6 +10,14 @@ import UIKit
 
 class SettingsCollectionViewCell: CustomCollectionViewCell {
     
+    var setting: Setting! {
+        didSet {
+            iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
+            iconImageView.tintColor = Color.battleShipGray
+            mainLabel.text = setting.name
+        }
+    }
+    
     let mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Settings"
