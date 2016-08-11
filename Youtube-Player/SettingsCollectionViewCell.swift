@@ -10,6 +10,20 @@ import UIKit
 
 class SettingsCollectionViewCell: CustomCollectionViewCell {
     
+    override var highlighted: Bool {
+        didSet {
+            if highlighted {
+                backgroundColor = Color.battleShipGray
+                mainLabel.textColor = UIColor.whiteColor()
+                iconImageView.tintColor = UIColor.whiteColor()
+            } else {
+                backgroundColor = UIColor.whiteColor()
+                mainLabel.textColor = UIColor.blackColor()
+                iconImageView.tintColor = Color.battleShipGray
+            }
+        }
+    }
+    
     var setting: Setting! {
         didSet {
             iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
