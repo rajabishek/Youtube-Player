@@ -14,6 +14,10 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let cellIdentifier = "settingsCell"
     
+    let collectionViewCellHeight = 40
+    
+    let settingsData = [("bell-icon", "Bell"), ("camera-icon", "Camera"), ("home-icon", "Home"), ("more-icon", "More"), ("play-icon", "Play")]
+    
     override init() {
         
         super.init()
@@ -40,12 +44,12 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             
             window.addSubview(dimmingView)
             
-            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
+            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(collectionViewCellHeight * settingsData.count))
             window.addSubview(collectionView)
             
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
                 self.dimmingView.alpha = 1
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - 200, width: window.frame.width, height: 200)
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - CGFloat(self.collectionViewCellHeight * self.settingsData.count), width: window.frame.width, height: 200)
             }, completion: nil)
         }
     }
@@ -54,7 +58,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
             self.dimmingView.alpha = 0
             if let window = UIApplication.sharedApplication().keyWindow {
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settingsData.count))
             }
             
         }, completion: nil)
@@ -65,16 +69,20 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return settingsData.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingsCollectionViewCell
+        let (iconName, title) = settingsData[indexPath.row]
+        cell.iconImageView.image = UIImage(named: iconName)?.imageWithRenderingMode(.AlwaysTemplate)
+        cell.iconImageView.tintColor = UIColor.blackColor()
+        cell.mainLabel.text = title
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
+        return CGSize(width: collectionView.frame.width, height: CGFloat(collectionViewCellHeight))
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
