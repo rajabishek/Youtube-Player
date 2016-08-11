@@ -7,4 +7,5 @@ target 'Youtube-Player' do
 
   # Pods for Youtube-Player
   pod 'Fakery', '~> 1.3'
+  pod 'Kingfisher', '~> 2.4'
 end

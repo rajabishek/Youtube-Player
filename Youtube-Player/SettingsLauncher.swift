@@ -16,7 +16,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let collectionViewCellHeight = 40
     
-    let settingsData = [("bell-icon", "Bell"), ("camera-icon", "Camera"), ("home-icon", "Home"), ("more-icon", "More"), ("play-icon", "Play")]
+    let settingsData = [("bell-icon", "Bell"), ("camera-icon", "Camera"), ("home-icon", "Home"), ("search-icon", "Search"), ("play-icon", "Play")]
     
     override init() {
         
@@ -76,7 +76,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingsCollectionViewCell
         let (iconName, title) = settingsData[indexPath.row]
         cell.iconImageView.image = UIImage(named: iconName)?.imageWithRenderingMode(.AlwaysTemplate)
-        cell.iconImageView.tintColor = UIColor.blackColor()
+        cell.iconImageView.tintColor = Color.battleShipGray
         cell.mainLabel.text = title
         return cell
     }

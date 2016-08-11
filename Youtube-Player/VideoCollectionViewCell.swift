@@ -101,7 +101,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
     let mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Luke Cage | Official Trailer [HD] | Netflix"
-        label.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        label.font = UIFont(name: "FiraSans-Regular", size: 16)
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -110,7 +110,7 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
     let subLabel: UILabel = {
         let label = UILabel()
         label.text = "In this Marvel live action series, a street-fighting ex-con battles crime on the streets"
-        label.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        label.font = UIFont(name: "FiraSans-Light", size: 12)
         label.numberOfLines = 2
         label.textColor = Color.battleShipGray
         label.translatesAutoresizingMaskIntoConstraints = false

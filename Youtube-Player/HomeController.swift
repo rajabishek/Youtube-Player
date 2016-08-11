@@ -76,7 +76,7 @@ class HomeController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //fetchVideos()
+        fetchVideos()
     }
 
     override func viewDidLoad() {
@@ -116,7 +116,7 @@ class HomeController: UICollectionViewController {
         mainLabel.text = "Home"
         mainLabel.backgroundColor = UIColor.clearColor()
         mainLabel.textAlignment = .Center
-        mainLabel.font = UIFont(name: "AvenirNext-Medium", size:17) ?? UIFont.systemFontOfSize(17)
+        mainLabel.font = UIFont(name: "FiraSans-Medium", size:17) ?? UIFont.systemFontOfSize(17)
         mainLabel.textColor = UIColor.whiteColor()
         mainLabel.sizeToFit()
         

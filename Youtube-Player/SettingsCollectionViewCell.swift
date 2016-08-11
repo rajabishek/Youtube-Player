@@ -13,7 +13,7 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
     let mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Settings"
-        label.font = UIFont(name: "AvenirNext-Demibold", size: 14)
+        label.font = UIFont(name: "FiraSans-Regular", size: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,7 +34,7 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         
         var allConstraints = [NSLayoutConstraint]()
         
-        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-8-[v0(20)]-16-[v1]|", views: iconImageView, mainLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0(20)]-16-[v1]|", views: iconImageView, mainLabel)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0]|", views: mainLabel)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
         
