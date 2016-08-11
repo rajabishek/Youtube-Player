@@ -31,19 +31,19 @@ class SettingsLauncher {
             collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
             window.addSubview(collectionView)
             
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
                 self.dimmingView.alpha = 1
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height - 200, width: window.frame.width, height: 200)
-            })
+            }, completion: nil)
         }
     }
     
     @objc func dismissSettings() {
         if let window = UIApplication.sharedApplication().keyWindow {
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
                 self.dimmingView.alpha = 0
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 200)
-            })
+            }, completion: nil)
         }
     }
 
