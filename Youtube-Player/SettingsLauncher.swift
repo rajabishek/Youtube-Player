@@ -16,7 +16,16 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let collectionViewCellHeight = 40
     
-    let settingsData = [("bell-icon", "Bell"), ("camera-icon", "Camera"), ("home-icon", "Home"), ("search-icon", "Search"), ("play-icon", "Play")]
+    let settings: [Setting] = {
+        
+        return [
+            Setting(name: "Bell", iconImageName: "bell-icon"),
+            Setting(name: "Camera", iconImageName: "camera-icon"),
+            Setting(name: "Home", iconImageName: "home-icon"),
+            Setting(name: "Search", iconImageName: "search-icon"),
+            Setting(name: "Play", iconImageName: "play-icon")
+        ]
+    }()
     
     override init() {
         
@@ -44,12 +53,12 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             
             window.addSubview(dimmingView)
             
-            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(collectionViewCellHeight * settingsData.count))
+            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(collectionViewCellHeight * settings.count))
             window.addSubview(collectionView)
             
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
                 self.dimmingView.alpha = 1
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - CGFloat(self.collectionViewCellHeight * self.settingsData.count), width: window.frame.width, height: 200)
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - CGFloat(self.collectionViewCellHeight * self.settings.count), width: window.frame.width, height: 200)
             }, completion: nil)
         }
     }
@@ -58,7 +67,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
             self.dimmingView.alpha = 0
             if let window = UIApplication.sharedApplication().keyWindow {
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settingsData.count))
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settings.count))
             }
             
         }, completion: nil)
@@ -69,15 +78,15 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return settingsData.count
+        return settings.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! SettingsCollectionViewCell
-        let (iconName, title) = settingsData[indexPath.row]
-        cell.iconImageView.image = UIImage(named: iconName)?.imageWithRenderingMode(.AlwaysTemplate)
+        let setting = settings[indexPath.row]
+        cell.iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
         cell.iconImageView.tintColor = Color.battleShipGray
-        cell.mainLabel.text = title
+        cell.mainLabel.text = setting.name
         return cell
     }
     
