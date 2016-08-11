@@ -12,9 +12,8 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
     
     let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "Luke Cage | Official Trailer [HD] | Netflix"
-        label.font = UIFont(name: "AvenirNext-Regular", size: 16)
-        label.numberOfLines = 2
+        label.text = "Settings"
+        label.font = UIFont(name: "AvenirNext-Demibold", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,11 +22,18 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()g
+    }()
     
     override func setupLayout() {
         super.setupLayout()
         
-        backgroundColor = Color.cardinalRed
+        addSubview(mainLabel)
+        
+        var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: mainLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0]|", views: mainLabel)
+        
+        NSLayoutConstraint.activateConstraints(allConstraints)
     }
 }

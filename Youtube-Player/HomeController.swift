@@ -76,7 +76,7 @@ class HomeController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchVideos()
+        //fetchVideos()
     }
 
     override func viewDidLoad() {
