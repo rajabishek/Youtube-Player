@@ -21,7 +21,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.registerClass(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
     
     let collectionView: UICollectionView = {
@@ -70,7 +70,6 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.yellowColor()
         return cell
     }
     
