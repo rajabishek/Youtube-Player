@@ -20,7 +20,7 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "")?.imageWithRenderingMode(.AlwaysTemplate)
+        imageView.image = UIImage(named: "home-icon")?.imageWithRenderingMode(.AlwaysTemplate)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .ScaleAspectFill
         return imageView
@@ -36,7 +36,7 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|-16-[v0(20)]-16-[v1]|", views: iconImageView, mainLabel)
         allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0]|", views: mainLabel)
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(20)]", views: mainLabel)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(20)]", views: iconImageView)
         
         allConstraints.append(NSLayoutConstraint(item: iconImageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
         

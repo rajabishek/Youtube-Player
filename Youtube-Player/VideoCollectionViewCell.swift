@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomImageView: UIImageView {
     
@@ -60,11 +61,18 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
     
     var video: Video! {
         didSet {
-            mainImageView.loadImageFromEndpoint(video.thumbnailImageName)
-            profileImageView.loadImageFromEndpoint(video.channel.profileImageName)
+            
+            if let thumbnailUrl = NSURL(string: video.thumbnailImageName) {
+                mainImageView.kf_setImageWithURL(thumbnailUrl, placeholderImage: nil,
+                                                 optionsInfo: [.ForceRefresh])
+            }
+            
+            if let profileUrl = NSURL(string: video.channel.profileImageName) {
+                profileImageView.kf_setImageWithURL(profileUrl, placeholderImage: nil,
+                                                    optionsInfo: [.ForceRefresh])
+            }
             
             mainLabel.text = video.title
-            
             let uploadDate = video.uploadDate.timeAgoSinceDate(true)
             
             let numberFormatter = NSNumberFormatter()
@@ -77,9 +85,9 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    let mainImageView: CustomImageView = {
-        let imageView = CustomImageView()
-        imageView.backgroundColor = UIColor.blueColor()
+    let mainImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.lightGrayColor()
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "banner")
@@ -87,9 +95,9 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         return imageView
     }()
     
-    let profileImageView: CustomImageView = {
-        let imageView = CustomImageView()
-        imageView.backgroundColor = UIColor.redColor()
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.darkGrayColor()
         imageView.layer.cornerRadius = 24
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true

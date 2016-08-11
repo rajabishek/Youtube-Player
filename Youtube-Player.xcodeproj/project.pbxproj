@@ -21,6 +21,7 @@
 		CC6F11E91D5CDE36003DCF8F /* FiraSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC6F11E01D5CDE36003DCF8F /* FiraSans-Medium.ttf */; };
 		CC6F11EA1D5CDE36003DCF8F /* FiraSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC6F11E11D5CDE36003DCF8F /* FiraSans-MediumItalic.ttf */; };
 		CC6F11EB1D5CDE36003DCF8F /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC6F11E21D5CDE36003DCF8F /* FiraSans-Regular.ttf */; };
+		CCAFBFCA1D5CF111003F254C /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAFBFC91D5CF111003F254C /* Setting.swift */; };
 		CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D71D5B5F6700286A87 /* HomeController.swift */; };
 		CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */; };
 		CCED09DD1D5B829200286A87 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09DC1D5B829200286A87 /* Extensions.swift */; };
@@ -51,6 +52,7 @@
 		CC6F11E01D5CDE36003DCF8F /* FiraSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Medium.ttf"; sourceTree = "<group>"; };
 		CC6F11E11D5CDE36003DCF8F /* FiraSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		CC6F11E21D5CDE36003DCF8F /* FiraSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.ttf"; sourceTree = "<group>"; };
+		CCAFBFC91D5CF111003F254C /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		CCED09D71D5B5F6700286A87 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CCED09D91D5B609600286A87 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCED09DC1D5B829200286A87 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				CC4869941D5B082A001A4B16 /* Youtube_Player.xcdatamodeld */,
 				CCED09E61D5BB9A500286A87 /* Video.swift */,
 				CCED09E81D5BBAAF00286A87 /* Channel.swift */,
+				CCAFBFC91D5CF111003F254C /* Setting.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */,
 				CCED09E91D5BBAAF00286A87 /* Channel.swift in Sources */,
 				CCED09E51D5B928100286A87 /* MenuCollectionViewCell.swift in Sources */,
+				CCAFBFCA1D5CF111003F254C /* Setting.swift in Sources */,
 				CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */,
 				CCF744181D5CCA690098AD50 /* SettingsCollectionViewCell.swift in Sources */,
 				CCED09E31D5B922300286A87 /* CustomCollectionViewCell.swift in Sources */,
