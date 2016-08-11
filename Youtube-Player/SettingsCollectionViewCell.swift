@@ -19,6 +19,12 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         return label
     }()
     
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()g
+    
     override func setupLayout() {
         super.setupLayout()
         
