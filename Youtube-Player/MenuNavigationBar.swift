@@ -27,7 +27,37 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         super.init(frame: frame)
         
         setupLayout()
+        
+        setupHorizontalBar()
     }
+    
+    let horizontalBar: UIView = {
+        let horizontalBar = UIView()
+        horizontalBar.backgroundColor = UIColor.whiteColor()
+        horizontalBar.translatesAutoresizingMaskIntoConstraints = false
+        return horizontalBar
+    }()
+    
+    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    
+    func setupHorizontalBar() {
+        
+        addSubview(horizontalBar)
+        
+        horizontalBarLeftAnchorConstraint = horizontalBar.leftAnchor.constraintEqualToAnchor(self.leftAnchor)
+        horizontalBarLeftAnchorConstraint?.active = true
+        horizontalBar.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor).active = true
+        horizontalBar.widthAnchor.constraintEqualToAnchor(self.widthAnchor, multiplier: 1/4).active = true
+        horizontalBar.heightAnchor.constraintEqualToConstant(4).active = true
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (frame.width/4)
+        UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
+    }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
