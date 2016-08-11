@@ -131,7 +131,7 @@ class HomeController: UICollectionViewController {
         let searchBarButtonItem = UIBarButtonItem(image: UIImage(named: "search-icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(handleSearch))
         searchBarButtonItem.tintColor = UIColor.whiteColor()
         
-        let moreBarButtonItem = UIBarButtonItem(image: UIImage(named: "more-icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(handleSearch))
+        let moreBarButtonItem = UIBarButtonItem(image: UIImage(named: "more-icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(handleMore))
         moreBarButtonItem.tintColor = UIColor.whiteColor()
         
         navigationItem.rightBarButtonItems = [moreBarButtonItem, searchBarButtonItem]
@@ -139,6 +139,17 @@ class HomeController: UICollectionViewController {
     
     func handleSearch() {
         
+        
+    }
+    
+    let settingLauncher = SettingsLauncher()
+    
+    func handleMore() {
+        settingLauncher.showSettings()
+    }
+    
+    func handleDismiss() {
+        settingLauncher.dismissSettings()
     }
     
     private func setupMenuBar() {

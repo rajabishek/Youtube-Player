@@ -22,6 +22,7 @@
 		CCED09E51D5B928100286A87 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09E41D5B928100286A87 /* MenuCollectionViewCell.swift */; };
 		CCED09E71D5BB9A500286A87 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09E61D5BB9A500286A87 /* Video.swift */; };
 		CCED09E91D5BBAAF00286A87 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED09E81D5BBAAF00286A87 /* Channel.swift */; };
+		CCF744161D5CB8400098AD50 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF744151D5CB8400098AD50 /* SettingsLauncher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		CCED09E41D5B928100286A87 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCED09E61D5BB9A500286A87 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		CCED09E81D5BBAAF00286A87 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		CCF744151D5CB8400098AD50 /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		F3CE776081D59A4C51A6EED4 /* Pods-Youtube-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-Player/Pods-Youtube-Player.release.xcconfig"; sourceTree = "<group>"; };
 		FA6A59CBFCDC4753BF12E8C2 /* Pods-Youtube-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-Player/Pods-Youtube-Player.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				CCED09D71D5B5F6700286A87 /* HomeController.swift */,
+				CCF744151D5CB8400098AD50 /* SettingsLauncher.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				CCED09E31D5B922300286A87 /* CustomCollectionViewCell.swift in Sources */,
 				CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */,
 				CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */,
+				CCF744161D5CB8400098AD50 /* SettingsLauncher.swift in Sources */,
 				CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */,
 				CCED09E11D5B8A4F00286A87 /* MenuNavigationBar.swift in Sources */,
 				CCED09E71D5BB9A500286A87 /* Video.swift in Sources */,
