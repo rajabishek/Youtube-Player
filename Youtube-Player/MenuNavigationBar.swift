@@ -53,7 +53,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (frame.width/4)
-        UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
             self.layoutIfNeeded()
         }, completion: nil)
     }
