@@ -33,7 +33,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     let horizontalBar: UIView = {
         let horizontalBar = UIView()
-        horizontalBar.backgroundColor = UIColor.whiteColor()
+        horizontalBar.backgroundColor = Color.cardinalRed
         horizontalBar.translatesAutoresizingMaskIntoConstraints = false
         return horizontalBar
     }()
@@ -48,7 +48,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         horizontalBarLeftAnchorConstraint?.active = true
         horizontalBar.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor).active = true
         horizontalBar.widthAnchor.constraintEqualToAnchor(self.widthAnchor, multiplier: 1/4).active = true
-        horizontalBar.heightAnchor.constraintEqualToConstant(4).active = true
+        horizontalBar.heightAnchor.constraintEqualToConstant(3).active = true
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

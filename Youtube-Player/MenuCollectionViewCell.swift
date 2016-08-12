@@ -18,13 +18,13 @@ class MenuCollectionViewCell: CustomCollectionViewCell {
     
     override var highlighted: Bool {
         didSet {
-            iconImageView.tintColor = highlighted ? UIColor.whiteColor() : UIColor.blackColor()
+            iconImageView.tintColor = highlighted ? UIColor.blackColor() : UIColor.blackColor()
         }
     }
     
     override var selected: Bool {
         didSet {
-            iconImageView.tintColor = selected ? UIColor.whiteColor() : UIColor.blackColor()
+            iconImageView.tintColor = selected ? UIColor.blackColor() : UIColor.blackColor()
         }
     }
     
@@ -36,7 +36,7 @@ class MenuCollectionViewCell: CustomCollectionViewCell {
     override func setupLayout() {
         super.setupLayout()
         
-        backgroundColor = Color.cardinalRed
+        backgroundColor = Color.wildSand
         
         addSubview(iconImageView)
         

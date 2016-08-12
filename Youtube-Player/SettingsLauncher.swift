@@ -39,7 +39,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = Color.wildSand
         return collectionView
     }()
     
