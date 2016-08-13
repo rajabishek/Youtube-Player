@@ -10,28 +10,6 @@ import UIKit
 
 class SettingsCollectionViewCell: CustomCollectionViewCell {
     
-    override var highlighted: Bool {
-        didSet {
-            if highlighted {
-                backgroundColor = Color.battleShipGray
-                mainLabel.textColor = UIColor.whiteColor()
-                iconImageView.tintColor = UIColor.whiteColor()
-            } else {
-                backgroundColor = UIColor.whiteColor()
-                mainLabel.textColor = UIColor.blackColor()
-                iconImageView.tintColor = Color.battleShipGray
-            }
-        }
-    }
-    
-    var setting: Setting! {
-        didSet {
-            iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
-            iconImageView.tintColor = Color.battleShipGray
-            mainLabel.text = setting.name
-        }
-    }
-    
     let mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Settings"
@@ -47,6 +25,28 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         imageView.contentMode = .ScaleAspectFill
         return imageView
     }()
+    
+    var setting: Setting! {
+        didSet {
+            iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
+            iconImageView.tintColor = Color.battleShipGray
+            mainLabel.text = setting.name
+        }
+    }
+
+    override var highlighted: Bool {
+        didSet {
+            if highlighted {
+                backgroundColor = Color.battleShipGray
+                mainLabel.textColor = UIColor.whiteColor()
+                iconImageView.tintColor = UIColor.whiteColor()
+            } else {
+                backgroundColor = UIColor.whiteColor()
+                mainLabel.textColor = UIColor.blackColor()
+                iconImageView.tintColor = Color.battleShipGray
+            }
+        }
+    }
     
     override func setupLayout() {
         super.setupLayout()
