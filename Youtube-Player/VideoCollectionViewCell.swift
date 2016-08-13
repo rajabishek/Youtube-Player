@@ -9,54 +9,6 @@
 import UIKit
 import Kingfisher
 
-class CustomImageView: UIImageView {
-    
-    var imageUrlString: String?
-    
-    func loadImageFromEndpoint(imageUrl: String) {
-        if let url = NSURL(string: imageUrl) {
-            
-            imageUrlString = imageUrl
-            
-            if let image = NSCache().objectForKey(imageUrl) as? UIImage {
-                self.image = image
-                return
-            }
-            
-            let request = NSURLRequest(URL: url)
-            let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-            
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                
-                if let responseError = error {
-                    print("Error calling GET on endpoint")
-                    print(responseError)
-                }
-                
-                if let responseData = data {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        if let image = UIImage(data: responseData) {
-                            
-                            if self.imageUrlString == imageUrl {
-                                self.image = image
-                            }
-                            
-                            NSCache().setObject(image, forKey: imageUrl)
-                        }
-                    })
-                } else {
-                    print("There is no data from the endpoint")
-                }
-                
-            })
-            task.resume()
-            
-        } else {
-            print("The url is not a valid one")
-        }
-    }
-}
-
 class VideoCollectionViewCell: CustomCollectionViewCell {
     
     var video: Video! {
