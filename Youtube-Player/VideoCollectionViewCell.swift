@@ -11,30 +11,6 @@ import Kingfisher
 
 class VideoCollectionViewCell: CustomCollectionViewCell {
     
-    var video: Video! {
-        didSet {
-            
-            if let thumbnailUrl = NSURL(string: video.thumbnailImageName) {
-                mainImageView.kf_setImageWithURL(thumbnailUrl)
-            }
-            
-            if let profileUrl = NSURL(string: video.channel.profileImageName) {
-                profileImageView.kf_setImageWithURL(profileUrl)
-            }
-            
-            mainLabel.text = video.title
-            let uploadDate = video.uploadDate.timeAgoSinceDate(true)
-            
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            if let numberOfViews = numberFormatter.stringFromNumber(video.numberOfViews) {
-                subLabel.text = "\(video.channel.name) - \(numberOfViews) - \(uploadDate)"
-            } else {
-                subLabel.text = "\(video.channel.name) - \(uploadDate)"
-            }
-        }
-    }
-    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.lightGrayColor()
@@ -82,6 +58,29 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         return line
     }()
     
+    var video: Video! {
+        didSet {
+            
+            if let thumbnailUrl = NSURL(string: video.thumbnailImageName) {
+                mainImageView.kf_setImageWithURL(thumbnailUrl)
+            }
+            
+            if let profileUrl = NSURL(string: video.channel.profileImageName) {
+                profileImageView.kf_setImageWithURL(profileUrl)
+            }
+            
+            mainLabel.text = video.title
+            let uploadDate = video.uploadDate.timeAgoSinceDate(true)
+            
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            if let numberOfViews = numberFormatter.stringFromNumber(video.numberOfViews) {
+                subLabel.text = "\(video.channel.name) - \(numberOfViews) - \(uploadDate)"
+            } else {
+                subLabel.text = "\(video.channel.name) - \(uploadDate)"
+            }
+        }
+    }
     
     override func setupLayout() {
         
