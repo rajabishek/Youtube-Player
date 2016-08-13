@@ -63,13 +63,11 @@ class VideoCollectionViewCell: CustomCollectionViewCell {
         didSet {
             
             if let thumbnailUrl = NSURL(string: video.thumbnailImageName) {
-                mainImageView.kf_setImageWithURL(thumbnailUrl, placeholderImage: nil,
-                                                 optionsInfo: [.ForceRefresh])
+                mainImageView.kf_setImageWithURL(thumbnailUrl)
             }
             
             if let profileUrl = NSURL(string: video.channel.profileImageName) {
-                profileImageView.kf_setImageWithURL(profileUrl, placeholderImage: nil,
-                                                    optionsInfo: [.ForceRefresh])
+                profileImageView.kf_setImageWithURL(profileUrl)
             }
             
             mainLabel.text = video.title
