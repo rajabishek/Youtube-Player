@@ -8,6 +8,7 @@
 
 import UIKit
 import Fakery
+import Alamofire
 
 private let reuseIdentifier = "Cell"
 
@@ -23,53 +24,26 @@ class HomeController: UICollectionViewController {
     
     func fetchVideos() {
         
-        if let url = NSURL(string: "http://localhost:8080/home.json") {
-            
-            let request = NSURLRequest(URL: url)
-            let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-            
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+        Alamofire.request(.GET, "http://localhost:8080/home.json")
+            .responseJSON { response in
                 
-                if let responseError = error {
-                    print("Error calling GET on /home.json")
-                    print(responseError)
-                }
-                
-                if let responseData = data {
-                    do {
-                        
-                        if let videosData = try NSJSONSerialization.JSONObjectWithData(responseData, options: []) as? [[String: AnyObject]] {
+                if let JSON = response.result.value as? [[String: AnyObject]] {
+                    
+                    for video in JSON {
+                        if let channel = video["channel"] as? [String: AnyObject] {
                             
-                            for video in videosData {
-                                if let channel = video["channel"] as? [String: AnyObject] {
-                                    
-                                    let channel = Channel(name: (channel["name"] as! String).capitalizedString, profileImageName: channel["profile_image_name"] as! String)
-                                    
-                                    self.videos.append(Video(thumbnailImageName: video["thumbnail_image_name"] as! String, title: video["title"] as! String, numberOfViews: video["number_of_views"] as! NSNumber, uploadDate: NSDate(), channel: channel))
-                                } else {
-                                    print("Could not parse the JSON file")
-                                }
-                            }
+                            let channel = Channel(name: (channel["name"] as! String).capitalizedString, profileImageName: channel["profile_image_name"] as! String)
                             
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.collectionView?.reloadData()
-                            })
-                            
+                            self.videos.append(Video(thumbnailImageName: video["thumbnail_image_name"] as! String, title: video["title"] as! String, numberOfViews: video["number_of_views"] as! NSNumber, uploadDate: NSDate(), channel: channel))
                         } else {
-                            print("Unable to convert the data to JSON")
+                            print("Could not parse the JSON file")
                         }
-                    } catch {
-                        print("Unable to convert the data to JSON")
                     }
-                } else {
-                    print("There is no data from the endpoint")
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.collectionView?.reloadData()
+                    })
                 }
-
-            })
-            task.resume()
-            
-        } else {
-            print("The url is not a valid one")
         }
     }
     
