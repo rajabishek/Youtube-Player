@@ -24,7 +24,7 @@ class HomeController: UICollectionViewController {
     
     func fetchVideos() {
         
-        Alamofire.request(.GET, "http://localhost:8080/home.json")
+        Alamofire.request(.GET, "https://api.myjson.com/bins/12qvh")
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? [[String: AnyObject]] {
