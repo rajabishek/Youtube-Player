@@ -8,13 +8,22 @@
 
 import UIKit
 
+enum Settings: String {
+    case Bell
+    case Camera
+    case Home
+    case Search
+    case Play
+    case Cancel
+}
+
 class Setting {
     
-    let name: String
+    let name: Settings
     
     let iconImageName: String
     
-    init(name: String, iconImageName: String) {
+    init(name: Settings, iconImageName: String) {
         
         self.name = name
         self.iconImageName = iconImageName

@@ -21,12 +21,12 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     let settings: [Setting] = {
         
         return [
-            Setting(name: "Bell", iconImageName: "bell-icon"),
-            Setting(name: "Camera", iconImageName: "camera-icon"),
-            Setting(name: "Home", iconImageName: "home-icon"),
-            Setting(name: "Search", iconImageName: "search-icon"),
-            Setting(name: "Play", iconImageName: "play-icon"),
-            Setting(name: "Close", iconImageName: "close-icon")
+            Setting(name: .Bell, iconImageName: "bell-icon"),
+            Setting(name: .Camera, iconImageName: "camera-icon"),
+            Setting(name: .Home, iconImageName: "home-icon"),
+            Setting(name: .Search, iconImageName: "search-icon"),
+            Setting(name: .Play, iconImageName: "play-icon"),
+            Setting(name: .Cancel, iconImageName: "close-icon")
         ]
     }()
     
@@ -108,7 +108,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 }
             }, completion: { (completed: Bool) in
                 let setting = self.settings[indexPath.item]
-                if setting.name != "Close" {
+                if setting.name != .Cancel {
                     self.delegate.presentViewControllerForSetting(setting)
                     return
                 }

@@ -140,7 +140,7 @@ class HomeController: UICollectionViewController {
         let viewController = UIViewController()
         viewController.view.backgroundColor = UIColor.whiteColor()
 
-        viewController.navigationItem.titleView = getTitleViewForNavigationBar(setting.name)
+        viewController.navigationItem.titleView = getTitleViewForNavigationBar(setting.name.rawValue)
         navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -30,7 +30,7 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         didSet {
             iconImageView.image = UIImage(named: setting.iconImageName)?.imageWithRenderingMode(.AlwaysTemplate)
             iconImageView.tintColor = Color.battleShipGray
-            mainLabel.text = setting.name
+            mainLabel.text = setting.name.rawValue
         }
     }
 
