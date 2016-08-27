@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5BA8837620739D4D6B0287A /* Pods_Youtube_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9508631E6083416CA88542F /* Pods_Youtube_Player.framework */; };
+		CC1A6EEA1D71A0A900D1A36D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1A6EE91D71A0A900D1A36D /* ApiService.swift */; };
 		CC48698E1D5B082A001A4B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48698D1D5B082A001A4B16 /* AppDelegate.swift */; };
 		CC4869931D5B082A001A4B16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4869911D5B082A001A4B16 /* Main.storyboard */; };
 		CC4869961D5B082A001A4B16 /* Youtube_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC4869941D5B082A001A4B16 /* Youtube_Player.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		B9508631E6083416CA88542F /* Pods_Youtube_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Youtube_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC1A6EE91D71A0A900D1A36D /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		CC48698A1D5B082A001A4B16 /* Youtube-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC48698D1D5B082A001A4B16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC4869921D5B082A001A4B16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 				B9508631E6083416CA88542F /* Pods_Youtube_Player.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC1A6EE81D71A09800D1A36D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CC1A6EE91D71A0A900D1A36D /* ApiService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		CC3E7C591D5B09E0009FAC3B /* Supporting Files */ = {
@@ -169,6 +179,7 @@
 		CC48698C1D5B082A001A4B16 /* Youtube-Player */ = {
 			isa = PBXGroup;
 			children = (
+				CC1A6EE81D71A09800D1A36D /* Services */,
 				CC6F11D81D5CDE1C003DCF8F /* Resources */,
 				CCED09DB1D5B827600286A87 /* Helpers */,
 				CC3E7C5C1D5B0A01009FAC3B /* Model */,
@@ -361,6 +372,7 @@
 				CCED09DA1D5B609600286A87 /* VideoCollectionViewCell.swift in Sources */,
 				CCED09D81D5B5F6700286A87 /* HomeController.swift in Sources */,
 				CCF744161D5CB8400098AD50 /* SettingsLauncher.swift in Sources */,
+				CC1A6EEA1D71A0A900D1A36D /* ApiService.swift in Sources */,
 				CCED09DF1D5B82D300286A87 /* Constants.swift in Sources */,
 				CCED09E11D5B8A4F00286A87 /* MenuNavigationBar.swift in Sources */,
 				CCED09E71D5BB9A500286A87 /* Video.swift in Sources */,

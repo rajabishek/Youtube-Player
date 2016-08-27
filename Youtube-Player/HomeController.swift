@@ -8,7 +8,6 @@
 
 import UIKit
 import Fakery
-import Alamofire
 
 private let reuseIdentifier = "Cell"
 
@@ -23,27 +22,9 @@ class HomeController: UICollectionViewController {
     }()
     
     func fetchVideos() {
-        
-        Alamofire.request(.GET, "https://api.myjson.com/bins/12qvh")
-            .responseJSON { response in
-                
-                if let JSON = response.result.value as? [[String: AnyObject]] {
-                    
-                    for video in JSON {
-                        if let channel = video["channel"] as? [String: AnyObject] {
-                            
-                            let channel = Channel(name: (channel["name"] as! String).capitalizedString, profileImageName: channel["profile_image_name"] as! String)
-                            
-                            self.videos.append(Video(thumbnailImageName: video["thumbnail_image_name"] as! String, title: video["title"] as! String, numberOfViews: video["number_of_views"] as! NSNumber, uploadDate: NSDate(), channel: channel))
-                        } else {
-                            print("Could not parse the JSON file")
-                        }
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.collectionView?.reloadData()
-                    })
-                }
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            self.videos = videos
+            self.collectionView?.reloadData()
         }
     }
     
