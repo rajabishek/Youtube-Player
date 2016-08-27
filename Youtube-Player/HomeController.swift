@@ -13,27 +13,12 @@ private let reuseIdentifier = "Cell"
 
 class HomeController: UICollectionViewController {
     
-    var videos = [Video]()
-        
     lazy var menuNavigationBar: MenuNavigationBar = {
         let menu  = MenuNavigationBar()
         menu.translatesAutoresizingMaskIntoConstraints = false
         menu.delegate = self
         return menu
     }()
-    
-    func fetchVideos() {
-        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
-            self.videos = videos
-            self.collectionView?.reloadData()
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        fetchVideos()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +33,7 @@ class HomeController: UICollectionViewController {
     
     func setupCollectionView() {
         // Register cell classes
-        self.collectionView!.registerClass(VideoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView!.registerClass(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
         collectionView?.backgroundColor = UIColor.whiteColor()
@@ -190,9 +173,7 @@ class HomeController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let colors: [UIColor] = [.redColor(), .greenColor(), .blueColor(), .darkGrayColor()]
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-        cell.backgroundColor = colors[indexPath.item]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         return cell
     }
     
@@ -213,6 +194,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        //Subract 50 i.e the height of the navigation menu bar
+        return CGSize(width: self.view.frame.width, height: self.view.frame.height - 50)
     }
 }
