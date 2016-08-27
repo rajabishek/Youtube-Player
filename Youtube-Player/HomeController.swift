@@ -80,21 +80,27 @@ class HomeController: UICollectionViewController {
         menuNavigationBar.collectionView.selectItemAtIndexPath(selectedIndexPath, animated: false, scrollPosition: .None)
     }
     
+    func getTitleViewForNavigationBar(title: String, fontSize: CGFloat = 17) -> UILabel {
+        
+        let label = UILabel(frame: CGRectZero)
+        
+        label.text = title
+        label.backgroundColor = UIColor.clearColor()
+        label.textAlignment = .Center
+        label.font = UIFont(name: "FiraSans-Medium", size:fontSize) ?? UIFont.systemFontOfSize(fontSize)
+        label.textColor = UIColor.whiteColor()
+        label.sizeToFit()
+
+        return label
+    }
+    
     func customizeNavigationBar() {
         
         navigationController?.navigationBar.barTintColor = Color.cardinalRed
         navigationController?.navigationBar.translucent = false
         
-        //Sets the naigation bar title
-        let mainLabel = UILabel(frame: CGRectMake(0, 0, 440, 44))
-        mainLabel.text = "Home"
-        mainLabel.backgroundColor = UIColor.clearColor()
-        mainLabel.textAlignment = .Center
-        mainLabel.font = UIFont(name: "FiraSans-Medium", size:17) ?? UIFont.systemFontOfSize(17)
-        mainLabel.textColor = UIColor.whiteColor()
-        mainLabel.sizeToFit()
-        
-        navigationItem.titleView = mainLabel
+        //Sets the navigation bar title
+        navigationItem.titleView = getTitleViewForNavigationBar("Home")
         navigationController?.navigationBar.barStyle = .Black
         
         //Removes the shadow under the navigation bar
@@ -116,7 +122,11 @@ class HomeController: UICollectionViewController {
         
     }
     
-    let settingLauncher = SettingsLauncher()
+    lazy var settingLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.delegate = self
+        return launcher
+    }()
     
     func handleMore() {
         settingLauncher.showSettings()
@@ -124,6 +134,15 @@ class HomeController: UICollectionViewController {
     
     func handleDismiss() {
         settingLauncher.dismissSettings()
+    }
+    
+    func presentViewControllerForSetting(setting: Setting) {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = UIColor.whiteColor()
+
+        viewController.navigationItem.titleView = getTitleViewForNavigationBar(setting.name)
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func setupMenuBar() {

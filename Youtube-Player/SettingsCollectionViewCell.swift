@@ -34,19 +34,33 @@ class SettingsCollectionViewCell: CustomCollectionViewCell {
         }
     }
 
-    override var highlighted: Bool {
-        didSet {
-            if highlighted {
-                backgroundColor = Color.battleShipGray
-                mainLabel.textColor = UIColor.whiteColor()
-                iconImageView.tintColor = UIColor.whiteColor()
-            } else {
-                backgroundColor = UIColor.whiteColor()
-                mainLabel.textColor = UIColor.blackColor()
-                iconImageView.tintColor = Color.battleShipGray
-            }
-        }
-    }
+//    override var highlighted: Bool {
+//        didSet {
+//            if highlighted {
+//                backgroundColor = Color.battleShipGray
+//                mainLabel.textColor = UIColor.whiteColor()
+//                iconImageView.tintColor = UIColor.whiteColor()
+//            } else {
+//                backgroundColor = UIColor.whiteColor()
+//                mainLabel.textColor = UIColor.blackColor()
+//                iconImageView.tintColor = Color.battleShipGray
+//            }
+//        }
+//    }
+//    
+//    override var selected: Bool {
+//        didSet {
+//            if selected {
+//                backgroundColor = Color.battleShipGray
+//                mainLabel.textColor = UIColor.whiteColor()
+//                iconImageView.tintColor = UIColor.whiteColor()
+//            } else {
+//                backgroundColor = UIColor.whiteColor()
+//                mainLabel.textColor = UIColor.blackColor()
+//                iconImageView.tintColor = Color.battleShipGray
+//            }
+//        }
+//    }
     
     override func setupLayout() {
         super.setupLayout()

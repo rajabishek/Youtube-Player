@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var delegate: HomeController!
+    
     let dimmingView  = UIView()
     
     let cellIdentifier = "settingsCell"
@@ -93,5 +95,18 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+                self.dimmingView.alpha = 0
+                if let window = UIApplication.sharedApplication().keyWindow {
+                    self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settings.count))
+                }
+            }, completion: { (completed: Bool) in
+                let setting = self.settings[indexPath.item]
+                self.delegate.presentViewControllerForSetting(setting)
+        })
     }
 }
