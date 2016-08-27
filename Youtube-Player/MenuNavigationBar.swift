@@ -12,6 +12,8 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     let cellIdentifier = "cellId"
     
+    let titles = ["Home", "Play", "Camera", "Bell"]
+    
     let iconNames = ["home-icon", "play-icon", "camera-icon", "bell-icon"]
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
@@ -54,6 +56,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate.changeNavigationBarTitleTo(titles[indexPath.item])
         delegate.scrollToMenuIndex(indexPath.item)
     }
 
