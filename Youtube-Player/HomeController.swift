@@ -188,7 +188,7 @@ class HomeController: UICollectionViewController {
     
     override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let index = Int(targetContentOffset.memory.x / view.frame.width)
-        changeNavigationBarTitleTo(menuNavigationBar.titles[index])
+        changeNavigationBarTitleTo(menuNavigationBar.menuNavigationItems[index].title)
     }
     
     func changeNavigationBarTitleTo(title: String) {

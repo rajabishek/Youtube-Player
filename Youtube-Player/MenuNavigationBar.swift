@@ -12,9 +12,12 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     let cellIdentifier = "cellId"
     
-    let titles = ["Home", "Play", "Camera", "Bell"]
-    
-    let iconNames = ["home-icon", "play-icon", "camera-icon", "bell-icon"]
+    let menuNavigationItems = [
+        MenuNavigationItem(title: "Home"),
+        MenuNavigationItem(title: "Play"),
+        MenuNavigationItem(title: "Camera"),
+        MenuNavigationItem(title: "Bell")
+    ]
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     
@@ -56,7 +59,7 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate.changeNavigationBarTitleTo(titles[indexPath.item])
+        delegate.changeNavigationBarTitleTo(menuNavigationItems[indexPath.item].title)
         delegate.scrollToMenuIndex(indexPath.item)
     }
 
@@ -86,12 +89,12 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return iconNames.count
+        return menuNavigationItems.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! MenuCollectionViewCell
-        cell.populateImage(iconNames[indexPath.row])
+        cell.populateImage(menuNavigationItems[indexPath.item].iconName)
         return cell
     }
     
