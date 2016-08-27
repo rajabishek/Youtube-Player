@@ -146,12 +146,24 @@ class HomeController: UICollectionViewController {
     
     private func setupMenuBar() {
         
+        navigationController?.hidesBarsOnSwipe = true
+        
+        let grayView = UIView()
+        grayView.backgroundColor = Color.wildSand
+        grayView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(grayView)
         view.addSubview(menuNavigationBar)
         
         var allConstraints = [NSLayoutConstraint]()
         
+        allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: grayView)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(50)]", views: grayView)
+        
         allConstraints += Constraint.getConstraintsWithVisualFormat("H:|[v0]|", views: menuNavigationBar)
-        allConstraints += Constraint.getConstraintsWithVisualFormat("V:|[v0(50)]", views: menuNavigationBar)
+        allConstraints += Constraint.getConstraintsWithVisualFormat("V:[v0(50)]", views: menuNavigationBar)
+        
+        menuNavigationBar.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
         
         NSLayoutConstraint.activateConstraints(allConstraints)
     }

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = Color.cardinalRed
         let initialViewController = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = UINavigationController(rootViewController: initialViewController)
         window?.makeKeyAndVisible()
@@ -25,6 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FiraSans-Medium", size:17) ?? UIFont.systemFontOfSize(17), NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        let statusBarBackground = UIView()
+        statusBarBackground.backgroundColor = Color.cardinalRed
+        statusBarBackground.translatesAutoresizingMaskIntoConstraints = false
+        
+        window?.addSubview(statusBarBackground)
+        
+        var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": statusBarBackground])
+        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[v0(20)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": statusBarBackground])
+        
+        NSLayoutConstraint.activateConstraints(allConstraints)
         
         return true
     }
