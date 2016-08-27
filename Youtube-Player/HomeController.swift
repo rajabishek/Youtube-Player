@@ -40,18 +40,28 @@ class HomeController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        setupCollectionView()
+        customizeNavigationBar()
+        setupMenuBar()
+    }
+    
+    func setupCollectionView() {
         // Register cell classes
         self.collectionView!.registerClass(VideoCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        
+        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
         // Do any additional setup after loading the view.
         collectionView?.backgroundColor = UIColor.whiteColor()
         
-        customizeNavigationBar()
-        
-        setupMenuBar()
+        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection  = .Horizontal
+        }
         
         collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        
+        collectionView?.pagingEnabled = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -175,13 +185,18 @@ class HomeController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        return 4
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! VideoCollectionViewCell
-        cell.video = videos[indexPath.row]
+        let colors: [UIColor] = [.redColor(), .greenColor(), .blueColor(), .darkGrayColor()]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
+        cell.backgroundColor = colors[indexPath.item]
         return cell
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        menuNavigationBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
     }
 }
 
@@ -192,6 +207,6 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 260)
+        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
     }
 }
