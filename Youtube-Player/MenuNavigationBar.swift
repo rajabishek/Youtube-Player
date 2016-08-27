@@ -14,6 +14,10 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     let iconNames = ["home-icon", "play-icon", "camera-icon", "bell-icon"]
     
+    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    
+    var delegate: HomeController!
+    
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = Color.cardinalRed
@@ -23,14 +27,6 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         return collectionView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupLayout()
-        
-        setupHorizontalBar()
-    }
-    
     let horizontalBar: UIView = {
         let horizontalBar = UIView()
         horizontalBar.backgroundColor = Color.cardinalRed
@@ -38,7 +34,13 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         return horizontalBar
     }()
     
-    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupLayout()
+        
+        setupHorizontalBar()
+    }
     
     func setupHorizontalBar() {
         
@@ -56,6 +58,8 @@ class MenuNavigationBar: UIView, UICollectionViewDataSource, UICollectionViewDel
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
             self.layoutIfNeeded()
         }, completion: nil)
+        
+        delegate.scrollToMenuIndex(indexPath.item)
     }
 
     

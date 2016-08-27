@@ -15,9 +15,10 @@ class HomeController: UICollectionViewController {
     
     var videos = [Video]()
         
-    let menuNavigationBar: MenuNavigationBar = {
+    lazy var menuNavigationBar: MenuNavigationBar = {
         let menu  = MenuNavigationBar()
         menu.translatesAutoresizingMaskIntoConstraints = false
+        menu.delegate = self
         return menu
     }()
     
@@ -197,6 +198,11 @@ class HomeController: UICollectionViewController {
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         menuNavigationBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
+    }
+    
+    func scrollToMenuIndex(index: Int) {
+        let indexPath = NSIndexPath(forItem: index, inSection: 0)
+        collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
     }
 }
 
