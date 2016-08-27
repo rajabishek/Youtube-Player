@@ -25,7 +25,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             Setting(name: "Camera", iconImageName: "camera-icon"),
             Setting(name: "Home", iconImageName: "home-icon"),
             Setting(name: "Search", iconImageName: "search-icon"),
-            Setting(name: "Play", iconImageName: "play-icon")
+            Setting(name: "Play", iconImageName: "play-icon"),
+            Setting(name: "Close", iconImageName: "close-icon")
         ]
     }()
     
@@ -60,7 +61,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
                 self.dimmingView.alpha = 1
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - CGFloat(self.collectionViewCellHeight * self.settings.count), width: window.frame.width, height: 200)
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height - CGFloat(self.collectionViewCellHeight * self.settings.count), width: window.frame.width,height: CGFloat(self.settings.count * self.collectionViewCellHeight))
             }, completion: nil)
         }
     }
@@ -107,7 +108,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 }
             }, completion: { (completed: Bool) in
                 let setting = self.settings[indexPath.item]
-                if setting.name != "Play" {
+                if setting.name != "Close" {
                     self.delegate.presentViewControllerForSetting(setting)
                     return
                 }
