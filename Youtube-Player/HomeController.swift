@@ -185,6 +185,12 @@ class HomeController: UICollectionViewController {
         let indexPath = NSIndexPath(forItem: index, inSection: 0)
         collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
     }
+    
+    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = Int(targetContentOffset.memory.x / view.frame.width)
+        let titles = ["Home", "Play", "Camera", "Bell"]
+        navigationItem.titleView = getTitleViewForNavigationBar(titles[index])
+    }
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
