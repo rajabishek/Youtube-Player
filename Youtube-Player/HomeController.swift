@@ -141,7 +141,7 @@ class HomeController: UICollectionViewController {
         viewController.view.backgroundColor = UIColor.whiteColor()
 
         viewController.navigationItem.titleView = getTitleViewForNavigationBar(setting.name)
-        
+        viewController.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
