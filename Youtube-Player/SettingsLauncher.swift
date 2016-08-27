@@ -66,13 +66,14 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     @objc func dismissSettings() {
+        
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
-            self.dimmingView.alpha = 0
-            if let window = UIApplication.sharedApplication().keyWindow {
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settings.count))
-            }
-            
-        }, completion: nil)
+                self.dimmingView.alpha = 0
+                if let window = UIApplication.sharedApplication().keyWindow {
+                    self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.collectionViewCellHeight * self.settings.count))
+                }
+            }, completion: nil)
+
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -106,7 +107,10 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 }
             }, completion: { (completed: Bool) in
                 let setting = self.settings[indexPath.item]
-                self.delegate.presentViewControllerForSetting(setting)
+                if setting.name != "Play" {
+                    self.delegate.presentViewControllerForSetting(setting)
+                    return
+                }
         })
     }
 }
